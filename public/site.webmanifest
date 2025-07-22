@@ -1,0 +1,37 @@
+{
+  "name": "FlashFundX Trading Platform",
+  "short_name": "FlashFundX",
+  "description": "Professional prop trading platform with instant funding and comprehensive trader management",
+  "icons": [
+    {
+      "src": "/16 3.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/32 3.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/48 3.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/180 3.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo 800 4.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#10b981",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

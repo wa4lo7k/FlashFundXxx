@@ -1,0 +1,582 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Professional animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Professional glass morphism */
+.glass {
+  background: rgba(15, 23, 42, 0.8);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+/* Professional gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+/* Silver-Gold gradients - Sophisticated blend */
+.gradient-gold {
+  background: linear-gradient(135deg, #B8A082 0%, #A0956B 50%, #B8A082 100%);
+}
+
+.gradient-gold-subtle {
+  background: linear-gradient(135deg, #B8A082 0%, #A0956B 100%);
+}
+
+.gradient-gold-warm {
+  background: linear-gradient(135deg, #E5E4E2 0%, #B8A082 50%, #A0956B 100%);
+}
+
+.gradient-silver {
+  background: linear-gradient(135deg, #E5E4E2 0%, #C0C0C0 100%);
+}
+
+.gradient-silver-gold {
+  background: linear-gradient(135deg, #E5E4E2 0%, #B8A082 50%, #A0956B 100%);
+}
+
+/* Professional text gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0d9488 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Silver-Gold text gradients - Sophisticated blend */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #B8A082 0%, #A0956B 50%, #B8A082 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold-subtle {
+  background: linear-gradient(135deg, #B8A082 0%, #A0956B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold-warm {
+  background: linear-gradient(135deg, #E5E4E2 0%, #B8A082 50%, #A0956B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(135deg, #E5E4E2 0%, #C0C0C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Professional shadows */
+.shadow-glow-emerald {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+}
+
+.shadow-glow-teal {
+  box-shadow: 0 0 30px rgba(13, 148, 136, 0.15);
+}
+
+.shadow-glow-blue {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+/* Silver-Gold shadows - Sophisticated blend */
+.shadow-glow-gold {
+  box-shadow: 0 0 30px rgba(184, 160, 130, 0.15);
+}
+
+.shadow-glow-gold-strong {
+  box-shadow: 0 0 40px rgba(184, 160, 130, 0.25), 0 0 20px rgba(160, 149, 107, 0.15);
+}
+
+.shadow-glow-gold-subtle {
+  box-shadow: 0 0 20px rgba(184, 160, 130, 0.1);
+}
+
+.shadow-glow-silver {
+  box-shadow: 0 0 25px rgba(229, 228, 226, 0.12);
+}
+
+.shadow-glow-silver-gold {
+  box-shadow: 0 0 35px rgba(184, 160, 130, 0.18), 0 0 15px rgba(229, 228, 226, 0.08);
+}
+
+/* Modern Silver-Gold Glow Icon Effects - Sophisticated blend */
+.golden-icon {
+  background: radial-gradient(circle at center, #B8A082 0%, #A0956B 100%);
+  box-shadow:
+    0 0 12px rgba(184, 160, 130, 0.6),
+    0 0 20px rgba(160, 149, 107, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.golden-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.golden-icon-modern {
+  background: radial-gradient(circle at 30% 30%, #B8A082 0%, #A0956B 50%, #B8A082 100%);
+  box-shadow:
+    0 0 20px rgba(184, 160, 130, 0.9),
+    0 0 40px rgba(160, 149, 107, 0.5),
+    0 4px 20px rgba(184, 160, 130, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.golden-icon-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(229, 228, 226, 0.15), rgba(192, 192, 192, 0.12), rgba(229, 228, 226, 0.10), transparent);
+  transition: left 1s ease;
+  pointer-events: none;
+}
+
+.golden-icon-modern:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow:
+    0 0 25px rgba(184, 160, 130, 1.0),
+    0 0 50px rgba(160, 149, 107, 0.6),
+    0 6px 25px rgba(184, 160, 130, 0.4),
+    0 0 12px rgba(229, 228, 226, 0.3),
+    0 0 60px rgba(184, 160, 130, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.golden-icon-modern:hover::before {
+  left: 100%;
+}
+
+.golden-icon-modern::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  border-radius: 14px 14px 0 0;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Enhanced Card Hover Effects */
+.hero-stat-card {
+  transition: all 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-stat-card:hover {
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  box-shadow: 0 0 25px rgba(52, 211, 153, 0.15), 0 0 50px rgba(52, 211, 153, 0.08);
+}
+
+.hero-stat-card.active {
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+/* Professional Pricing Card Hover Effects */
+.pricing-card-hover {
+  transition: all 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.pricing-card-hover:hover {
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.08);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.hero-stat-pulse {
+  background: linear-gradient(to right, rgba(52, 211, 153, 0.05), rgba(52, 211, 153, 0.03));
+}
+
+/* Professional borders */
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(13, 148, 136, 0.2)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Professional animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scrolling ticker animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Trading Elements Animations */
+@keyframes trading-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(2deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg) scale(1.1);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-2deg) scale(1.05);
+  }
+}
+
+@keyframes bitcoin-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes chart-pulse {
+  0%, 100% {
+    opacity: 0.03;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.05;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2), 0 0 60px rgba(20, 184, 166, 0.1);
+  }
+}
+
+/* Trading Element Classes */
+.trading-arrow {
+  animation: trading-float 4s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.bitcoin-icon {
+  animation: bitcoin-rotate 10s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.trading-chart {
+  animation: chart-pulse 6s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.trading-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Sophisticated Animation Effects */
+@keyframes parallax-float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-5px) translateX(2px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-8px) translateX(0px) scale(1.05);
+  }
+  75% {
+    transform: translateY(-5px) translateX(-2px) scale(1.02);
+  }
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1) rotate(1deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes subtle-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1), 0 0 30px rgba(16, 185, 129, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.2), 0 0 50px rgba(16, 185, 129, 0.1), 0 0 75px rgba(20, 184, 166, 0.05);
+  }
+}
+
+@keyframes golden-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.1), 0 0 30px rgba(245, 158, 11, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.2), 0 0 50px rgba(245, 158, 11, 0.1), 0 0 75px rgba(217, 119, 6, 0.05);
+  }
+}
+
+/* Premium Animation Classes */
+.parallax-float {
+  animation: parallax-float 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.breathing {
+  animation: breathing 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.subtle-glow {
+  animation: subtle-glow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.golden-glow {
+  animation: golden-glow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Premium Animation Delays */
+.animate-delay-0 { animation-delay: 0s; }
+.animate-delay-1 { animation-delay: 1s; }
+.animate-delay-2 { animation-delay: 2s; }
+.animate-delay-3 { animation-delay: 3s; }
+.animate-delay-4 { animation-delay: 4s; }
+.animate-delay-5 { animation-delay: 5s; }
+.animate-delay-6 { animation-delay: 6s; }
+.animate-delay-8 { animation-delay: 8s; }
+
+/* Premium Background Elements - Mobile Optimization */
+@media (max-width: 768px) {
+  .premium-bg-icon {
+    opacity: 0.08 !important;
+    transform: scale(0.8);
+  }
+
+  .premium-particle {
+    opacity: 0.6 !important;
+    transform: scale(0.8);
+  }
+
+  .premium-grid {
+    opacity: 0.06 !important;
+  }
+
+  .trading-arrow {
+    opacity: 0.10 !important;
+    transform: scale(0.9);
+  }
+
+  .bitcoin-icon {
+    opacity: 0.08 !important;
+    transform: scale(0.8);
+  }
+
+  .trading-chart {
+    opacity: 0.08 !important;
+    transform: scale(0.95);
+  }
+
+  /* Mobile-specific improvements */
+  .hero-stat-card {
+    padding: 1rem !important;
+  }
+
+  .pricing-card-hover:hover {
+    transform: translateY(-1px) scale(1.01) !important;
+  }
+
+  /* Reduce animation intensity on mobile */
+  .animate-float {
+    animation-duration: 8s !important;
+  }
+
+  /* Improve touch targets */
+  button, .button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better text scaling */
+  .text-gradient-primary,
+  .text-gradient-secondary,
+  .text-gradient-gold {
+    background-size: 100% 100% !important;
+  }
+}
+
+/* Premium Performance Optimizations */
+.premium-bg-icon {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.premium-particle {
+  will-change: opacity;
+  transform: translateZ(0);
+}

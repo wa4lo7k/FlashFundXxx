@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 177.69 114.63">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="88.67" y1="0" x2="88.67" y2="82.21" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#070e1f"/>
+      <stop offset="1" stop-color="#09a372"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="40.75" y1="69.27" x2="95.88" y2="-9.46" xlink:href="#linear-gradient"/>
+  </defs>
+  <g>
+    <path class="cls-3" d="m126.59,82.21H50.75c-8.75,0-15.92-7.16-15.92-15.92V15.92c0-8.75,7.16-15.92,15.92-15.92h75.84c8.64,0,15.92,7.16,15.92,15.92v50.37c0,8.75-7.16,15.92-15.92,15.92Z"/>
+    <path class="cls-1" d="m134.5,2.18l-25.46,36.38-32.01-8-29.43,51.33c-7.25-1.47-12.77-7.92-12.77-15.6V15.92c0-8.75,7.17-15.92,15.92-15.92h75.84c2.82,0,5.61.88,7.92,2.18Z"/>
+  </g>
+  <polygon class="cls-2" points="95.94 0 68.3 45.83 86.3 46.56 79.21 82.21 114.13 31.28 93.4 31.65 95.94 0"/>
+</svg>

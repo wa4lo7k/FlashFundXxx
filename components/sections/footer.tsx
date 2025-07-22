@@ -41,7 +41,7 @@ export default function Footer() {
                 <div className="space-y-2 text-slate-400">
                   <p className="text-xs leading-relaxed font-light tracking-wide">
                     This site provides educational information on financial markets trading, not investment advice.
-                    FundedFolk does not offer investment services. It is not a broker.
+                    FlashFundX does not offer investment services. It is not a broker.
                     Third-party liquidity providers power our platforms and data feed.
                   </p>
                 </div>

@@ -177,13 +177,15 @@ export default function LoginPage() {
           <div className="w-full max-w-md">
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
-              <Image
-                src="/250 1.svg"
-                alt="FlashFundX"
-                width={195}
-                height={126}
-                className="h-10 w-auto"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/250 1.svg"
+                  alt="FlashFundX"
+                  width={195}
+                  height={126}
+                  className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
             </div>
 
             <Card className="glass border-slate-800/30 shadow-2xl">

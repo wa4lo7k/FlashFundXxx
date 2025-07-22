@@ -27,10 +27,10 @@ export default function Hero() {
   const lottieReactIconRef = useRef<HTMLDivElement>(null)
 
   const stats = [
-    { value: "$850K+", label: "Paid to Traders", icon: CircleDollarSign },
-    { value: "15,000+", label: "Active Traders", icon: UsersRound },
-    { value: "24/7", label: "Support", icon: ShieldCheck },
-    { value: "99.9%", label: "Uptime", icon: Trophy },
+    { value: "$850K+", label: "Training Rewards", icon: CircleDollarSign },
+    { value: "15,000+", label: "Students Trained", icon: UsersRound },
+    { value: "24/7", label: "Learning Support", icon: ShieldCheck },
+    { value: "99.9%", label: "Platform Uptime", icon: Trophy },
   ]
 
   useEffect(() => {
@@ -212,7 +212,7 @@ export default function Hero() {
               background: 'rgba(184, 160, 130, 0.1)'
             }}>
               <Zap className="w-4 h-4 mr-2" style={{ color: '#A0956B' }} />
-              Instant Funding Available • No Evaluation Required
+              Professional Trading Platform • Advanced Tools Available
             </Badge>
           </div>
 
@@ -226,7 +226,7 @@ export default function Hero() {
           {/* Professional Subtitle */}
           <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-12 max-w-5xl mx-auto leading-relaxed font-light">
             Join thousands of successful traders with{" "}
-            <span className="text-emerald-400 font-semibold">instant funding up to $500K</span>.
+            <span className="text-emerald-400 font-semibold">comprehensive training programs up to $500K</span>.
             <br />
             Professional-grade infrastructure with institutional execution.
           </p>
@@ -276,7 +276,7 @@ export default function Hero() {
                 size="lg"
                 className="w-full sm:w-auto gradient-primary hover:shadow-glow-emerald text-white px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-semibold transition-all duration-300 group hover:scale-105 shadow-2xl"
               >
-                Start Trading Today
+                Start Learning Today
                 <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

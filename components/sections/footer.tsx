@@ -9,37 +9,50 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-slate-950 border-t border-slate-800/30">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900/50" />
+    <footer className="relative bg-slate-950 border-t border-slate-800/20">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900/30" />
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+      <div className="container mx-auto px-6 py-8 relative z-10">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
+            <div className="mb-4">
               <Link href="/" className="inline-block group">
                 <Image
                   src="/250 1.svg"
                   alt="FlashFundX"
                   width={195}
                   height={126}
-                  className="h-10 w-auto mb-4 transition-all duration-300 group-hover:scale-105"
+                  className="h-8 w-auto mb-3 transition-all duration-300 group-hover:scale-105 opacity-90"
                 />
               </Link>
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
-              RISK DISCLOSURE: This site provides educational information on financial markets
-              trading, not investment advice. FundedFolk does not offer investment services. It not a
-              broker. Third-party liquidity providers power our platforms and data feed.
-            </p>
+            {/* Sophisticated Risk Disclosure Section */}
+            <div className="relative mb-4 max-w-sm">
+              <div className="border-l-2 border-slate-700/30 pl-3">
+                {/* Minimalist header */}
+                <h4 className="text-slate-400 font-normal text-xs uppercase tracking-wide mb-2 opacity-80">
+                  Risk Disclosure
+                </h4>
+
+                {/* Refined typography with Netflix/Amazon styling */}
+                <div className="space-y-2 text-slate-400">
+                  <p className="text-xs leading-relaxed font-light tracking-wide">
+                    This site provides educational information on financial markets trading, not investment advice.
+                    FundedFolk does not offer investment services. It is not a broker.
+                    Third-party liquidity providers power our platforms and data feed.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Links Section */}
           <div className="lg:col-span-1">
-            <h3 className="font-semibold text-white mb-6 text-lg">Links</h3>
-            <ul className="space-y-3">
+            <h3 className="font-normal text-slate-300 mb-4 text-sm tracking-wide">Links</h3>
+            <ul className="space-y-2">
               {[
                 { name: "Offer", href: "#" },
                 { name: "Features", href: "#" },
@@ -48,7 +61,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors text-sm"
+                    className="text-slate-400 hover:text-slate-200 transition-colors text-xs font-light tracking-wide hover:underline underline-offset-2"
                   >
                     {item.name}
                   </Link>
@@ -59,10 +72,10 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="lg:col-span-1">
-            <h3 className="font-semibold text-white mb-6 text-lg">Contact Us</h3>
+            <h3 className="font-normal text-slate-300 mb-4 text-sm tracking-wide">Contact Us</h3>
 
             {/* Social Links */}
-            <div className="flex space-x-3 mb-6">
+            <div className="flex space-x-2 mb-4">
               {[
                 { icon: Twitter, label: "Twitter", href: "#" },
                 { icon: MessageCircle, label: "Telegram", href: "#" },
@@ -81,20 +94,20 @@ export default function Footer() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors"
+                  className="w-7 h-7 bg-slate-800/50 rounded-md flex items-center justify-center hover:bg-slate-700/70 transition-all duration-200 hover:scale-105"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4 text-slate-400" />
+                  <social.icon className="w-3.5 h-3.5 text-slate-400 hover:text-slate-300" />
                 </Link>
               ))}
             </div>
 
             {/* Contact Email */}
             <div className="flex items-center space-x-2">
-              <Mail className="w-4 h-4 text-slate-400" />
+              <Mail className="w-3.5 h-3.5 text-slate-400" />
               <Link
                 href="mailto:support@flashfundx.com"
-                className="text-slate-400 hover:text-emerald-400 transition-colors text-sm"
+                className="text-slate-400 hover:text-slate-200 transition-colors text-xs font-light tracking-wide hover:underline underline-offset-2"
               >
                 support@flashfundx.com
               </Link>

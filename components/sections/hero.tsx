@@ -11,6 +11,7 @@ declare global {
 
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -23,6 +24,7 @@ export default function Hero() {
   const bitcoinIconRef = useRef<HTMLDivElement>(null)
   const ethereumIconRef = useRef<HTMLDivElement>(null)
   const lottieIconRef = useRef<HTMLDivElement>(null)
+  const lottieReactIconRef = useRef<HTMLDivElement>(null)
 
   const stats = [
     { value: "$850K+", label: "Paid to Traders", icon: CircleDollarSign },
@@ -40,7 +42,7 @@ export default function Hero() {
 
   // GSAP Animation for floating background icons
   useEffect(() => {
-    const icons = [bitcoinIconRef.current, ethereumIconRef.current, lottieIconRef.current].filter(Boolean)
+    const icons = [bitcoinIconRef.current, ethereumIconRef.current, lottieIconRef.current, lottieReactIconRef.current].filter(Boolean)
 
     icons.forEach((icon, index) => {
       if (!icon) return
@@ -129,7 +131,7 @@ export default function Hero() {
       {/* Bitcoin Icon - Left Side Background */}
       <div
         ref={bitcoinIconRef}
-        className="absolute top-20 left-3 sm:left-4 md:left-8 lg:left-12 xl:left-16 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 opacity-20 sm:opacity-20 md:opacity-20 lg:opacity-25 z-0"
+        className="hero-crypto-icon hero-crypto-bitcoin absolute top-16 sm:top-20 left-4 sm:left-6 md:left-8 lg:left-12 xl:left-16 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 opacity-25 sm:opacity-25 md:opacity-25 lg:opacity-30 z-5"
         style={{
           filter: "drop-shadow(0 2px 10px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(255, 193, 7, 0.2))"
         }}
@@ -148,7 +150,7 @@ export default function Hero() {
       {/* Ethereum Icon - Mid Left Background */}
       <div
         ref={ethereumIconRef}
-        className="absolute top-1/2 left-3 sm:left-4 md:left-8 lg:left-12 xl:left-16 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 opacity-20 sm:opacity-20 md:opacity-20 lg:opacity-25 z-0"
+        className="hero-crypto-icon hero-crypto-ethereum absolute top-1/2 left-4 sm:left-6 md:left-8 lg:left-12 xl:left-16 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 opacity-25 sm:opacity-25 md:opacity-25 lg:opacity-30 z-5"
         style={{
           filter: "drop-shadow(0 2px 10px rgba(255, 193, 7, 0.4)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.2))"
         }}
@@ -167,7 +169,7 @@ export default function Hero() {
       {/* Lottie Animation - Mid Right Background */}
       <div
         ref={lottieIconRef}
-        className="absolute top-2/5 right-3 sm:right-4 md:right-8 lg:right-12 xl:right-16 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-44 xl:h-44 opacity-20 sm:opacity-20 md:opacity-20 lg:opacity-25 z-0"
+        className="hero-crypto-icon hero-crypto-lottie absolute top-1/3 right-4 sm:right-6 md:right-8 lg:right-12 xl:right-16 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 opacity-25 sm:opacity-25 md:opacity-25 lg:opacity-30 z-5"
         style={{
           filter: "drop-shadow(0 2px 10px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(147, 197, 253, 0.2))"
         }}
@@ -181,6 +183,23 @@ export default function Hero() {
           loop
           autoplay
         ></dotlottie-player>
+      </div>
+
+      {/* DotLottieReact Component - Top Right Background */}
+      <div
+        ref={lottieReactIconRef}
+        className="hero-crypto-icon hero-crypto-lottie-react absolute top-16 sm:top-20 right-4 sm:right-6 md:right-8 lg:right-12 xl:right-16 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 opacity-25 sm:opacity-25 md:opacity-25 lg:opacity-30 z-5"
+        style={{
+          filter: "drop-shadow(0 2px 10px rgba(16, 185, 129, 0.4)) drop-shadow(0 0 20px rgba(20, 184, 166, 0.2))"
+        }}
+      >
+        {/* Professional Lottie Animation - React Component */}
+        <DotLottieReact
+          src="https://lottie.host/7c6d026a-40a9-43e5-b159-464d9401e806/q3OWzbxoxa.lottie"
+          loop
+          autoplay
+          style={{ width: '100%', height: '100%', transform: 'rotate(0deg)' }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

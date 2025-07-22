@@ -216,13 +216,15 @@ export default function SignUpPage() {
           <div className="w-full max-w-2xl">
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
-              <Image
-                src="/250 1.svg"
-                alt="FlashFundX"
-                width={195}
-                height={126}
-                className="h-10 w-auto"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/250 1.svg"
+                  alt="FlashFundX"
+                  width={195}
+                  height={126}
+                  className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
             </div>
 
             <Card className="glass border-slate-800/30 shadow-2xl">
@@ -483,11 +485,19 @@ export default function SignUpPage() {
         <div className="hidden lg:flex lg:w-1/3 flex-col justify-center p-12 bg-gradient-to-b from-slate-900/50 to-slate-800/50">
           <div className="max-w-sm">
             {/* Logo */}
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gradient-primary">FlashFundX</span>
+            <div className="mb-8">
+              <Link href="/" className="flex items-center space-x-3 group">
+                <div className="w-10 h-10 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+                  <Image
+                    src="/250 1.svg"
+                    alt="FlashFundX"
+                    width={40}
+                    height={26}
+                    className="w-8 h-auto"
+                  />
+                </div>
+                <span className="text-xl font-bold text-gradient-primary">FlashFundX</span>
+              </Link>
             </div>
 
             {/* Benefits */}

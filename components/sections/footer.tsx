@@ -18,13 +18,15 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <Image
-                src="/250 1.svg"
-                alt="FlashFundX"
-                width={195}
-                height={126}
-                className="h-10 w-auto mb-4"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/250 1.svg"
+                  alt="FlashFundX"
+                  width={195}
+                  height={126}
+                  className="h-10 w-auto mb-4 transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">

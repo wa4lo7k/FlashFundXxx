@@ -7,11 +7,13 @@ export const metadata: Metadata = {
   description: 'Professional prop trading platform with instant funding and comprehensive trader management',
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
       { url: '/16 3.png', sizes: '16x16', type: 'image/png' },
       { url: '/32 3.png', sizes: '32x32', type: 'image/png' },
       { url: '/48 3.png', sizes: '48x48', type: 'image/png' },
       { url: '/16 3.svg', type: 'image/svg+xml' }
     ],
+    shortcut: '/favicon.ico',
     apple: [
       { url: '/180 3.png', sizes: '180x180', type: 'image/png' }
     ]

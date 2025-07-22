@@ -129,9 +129,9 @@ export default function Hero() {
       {/* Bitcoin Icon - Left Side Background */}
       <div
         ref={bitcoinIconRef}
-        className="absolute top-24 left-2 sm:left-4 md:left-8 lg:left-12 xl:left-16 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-25 z-0"
+        className="absolute top-20 left-3 sm:left-4 md:left-8 lg:left-12 xl:left-16 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 opacity-20 sm:opacity-20 md:opacity-20 lg:opacity-25 z-0"
         style={{
-          filter: "drop-shadow(0 2px 10px rgba(251, 146, 60, 0.3)) drop-shadow(0 0 20px rgba(255, 193, 7, 0.15))"
+          filter: "drop-shadow(0 2px 10px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(255, 193, 7, 0.2))"
         }}
       >
         {/* Professional Bitcoin Image */}
@@ -148,9 +148,9 @@ export default function Hero() {
       {/* Ethereum Icon - Mid Left Background */}
       <div
         ref={ethereumIconRef}
-        className="absolute top-1/2 left-2 sm:left-4 md:left-8 lg:left-12 xl:left-16 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-25 z-0"
+        className="absolute top-1/2 left-3 sm:left-4 md:left-8 lg:left-12 xl:left-16 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 opacity-20 sm:opacity-20 md:opacity-20 lg:opacity-25 z-0"
         style={{
-          filter: "drop-shadow(0 2px 10px rgba(255, 193, 7, 0.3)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.15))"
+          filter: "drop-shadow(0 2px 10px rgba(255, 193, 7, 0.4)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.2))"
         }}
       >
         {/* Professional Ethereum Image */}
@@ -167,9 +167,9 @@ export default function Hero() {
       {/* Lottie Animation - Mid Right Background */}
       <div
         ref={lottieIconRef}
-        className="absolute top-2/5 right-2 sm:right-4 md:right-8 lg:right-12 xl:right-16 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-44 xl:h-44 opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-25 z-0"
+        className="absolute top-2/5 right-3 sm:right-4 md:right-8 lg:right-12 xl:right-16 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-44 xl:h-44 opacity-20 sm:opacity-20 md:opacity-20 lg:opacity-25 z-0"
         style={{
-          filter: "drop-shadow(0 2px 10px rgba(59, 130, 246, 0.3)) drop-shadow(0 0 20px rgba(147, 197, 253, 0.15))"
+          filter: "drop-shadow(0 2px 10px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(147, 197, 253, 0.2))"
         }}
       >
         {/* Professional Lottie Animation - Web Component */}

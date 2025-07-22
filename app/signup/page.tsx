@@ -260,7 +260,7 @@ export default function SignUpPage() {
                         <Input
                           id="firstName"
                           type="text"
-                          placeholder="John"
+                          placeholder="First name"
                           value={formData.firstName}
                           onChange={(e) => handleInputChange("firstName", e.target.value)}
                           className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -277,7 +277,7 @@ export default function SignUpPage() {
                         <Input
                           id="lastName"
                           type="text"
-                          placeholder="Doe"
+                          placeholder="Last name"
                           value={formData.lastName}
                           onChange={(e) => handleInputChange("lastName", e.target.value)}
                           className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -297,7 +297,7 @@ export default function SignUpPage() {
                       <Input
                         id="email"
                         type="email"
-                        placeholder="john.doe@example.com"
+                        placeholder="Enter your email address"
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -317,7 +317,7 @@ export default function SignUpPage() {
                         <Input
                           id="phone"
                           type="tel"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="Enter your phone number"
                           value={formData.phone}
                           onChange={(e) => handleInputChange("phone", e.target.value)}
                           className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"

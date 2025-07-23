@@ -59,9 +59,11 @@ export default function Hero() {
       const delay = index * 1.2 // Staggered start times
 
       // Main floating animation (gentle for background elements)
+      // Skip rotation for Lottie icons (index 2 and 3)
+      const shouldRotate = index < 2 // Only Bitcoin (0) and Ethereum (1) icons rotate
       gsap.to(icon, {
         y: -floatDistance,
-        rotation: index % 2 === 0 ? 5 : -5, // Alternate tilt directions
+        rotation: shouldRotate ? (index % 2 === 0 ? 5 : -5) : 0, // No rotation for Lottie icons
         duration: duration,
         ease: "power2.inOut",
         yoyo: true,
@@ -69,9 +71,9 @@ export default function Hero() {
         delay: delay,
       })
 
-      // Add subtle scale animation
+      // Add dramatic scale animation
       gsap.to(icon, {
-        scale: 1.04,
+        scale: 1.15,
         duration: duration * 0.8,
         ease: "power2.inOut",
         yoyo: true,
@@ -79,14 +81,16 @@ export default function Hero() {
         delay: delay + 0.5,
       })
 
-      // Add gentle continuous rotation
-      gsap.to(icon, {
-        rotation: `+=${index % 2 === 0 ? 180 : -180}`,
-        duration: 25 + (index * 5),
-        ease: "none",
-        repeat: -1,
-        delay: delay,
-      })
+      // Add gentle continuous rotation (only for Bitcoin and Ethereum, not Lottie icons)
+      if (shouldRotate) {
+        gsap.to(icon, {
+          rotation: `+=${index % 2 === 0 ? 180 : -180}`,
+          duration: 25 + (index * 5),
+          ease: "none",
+          repeat: -1,
+          delay: delay,
+        })
+      }
 
       // Add subtle pulsing glow effect
       gsap.to(icon, {
@@ -133,7 +137,7 @@ export default function Hero() {
         ref={bitcoinIconRef}
         className="hero-crypto-icon hero-crypto-bitcoin absolute top-16 sm:top-20 left-4 sm:left-6 md:left-8 lg:left-12 xl:left-16 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 opacity-25 sm:opacity-25 md:opacity-25 lg:opacity-30 z-5"
         style={{
-          filter: "drop-shadow(0 2px 10px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(255, 193, 7, 0.2))"
+          filter: "drop-shadow(0 2px 10px rgba(52, 211, 153, 0.2)) drop-shadow(0 0 20px rgba(16, 185, 129, 0.1))"
         }}
       >
         {/* Professional Bitcoin Image */}
@@ -152,7 +156,7 @@ export default function Hero() {
         ref={ethereumIconRef}
         className="hero-crypto-icon hero-crypto-ethereum absolute top-1/2 left-4 sm:left-6 md:left-8 lg:left-12 xl:left-16 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 opacity-25 sm:opacity-25 md:opacity-25 lg:opacity-30 z-5"
         style={{
-          filter: "drop-shadow(0 2px 10px rgba(255, 193, 7, 0.4)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.2))"
+          filter: "drop-shadow(0 2px 10px rgba(52, 211, 153, 0.2)) drop-shadow(0 0 20px rgba(16, 185, 129, 0.1))"
         }}
       >
         {/* Professional Ethereum Image */}
@@ -206,12 +210,13 @@ export default function Hero() {
         <div className="max-w-6xl mx-auto text-center">
           {/* Professional Announcement */}
           <div className="inline-flex items-center space-x-2 mb-8">
-            <Badge className="glass-card px-6 py-2 text-sm font-medium border shadow-glow-gold-subtle" style={{
-              color: '#B8A082',
-              borderColor: 'rgba(184, 160, 130, 0.2)',
-              background: 'rgba(184, 160, 130, 0.1)'
+            <Badge className="glass-card px-6 py-2 text-sm font-medium border" style={{
+              color: '#34D399',
+              borderColor: 'rgba(52, 211, 153, 0.2)',
+              background: 'rgba(52, 211, 153, 0.1)',
+              boxShadow: '0 0 15px rgba(16, 185, 129, 0.075)'
             }}>
-              <Zap className="w-4 h-4 mr-2" style={{ color: '#A0956B' }} />
+              <Zap className="w-4 h-4 mr-2" style={{ color: '#10b981' }} />
               Professional Trading Platform • Advanced Tools Available
             </Badge>
           </div>
@@ -236,30 +241,44 @@ export default function Hero() {
             {stats.map((stat, index) => (
               <Card
                 key={index}
-                className={`hero-stat-card relative bg-slate-900/40 border-slate-800/50 backdrop-blur-sm hover:scale-105 ${
-                  index === currentStat ? "shadow-glow-gold active" : ""
+                className={`hero-stat-card relative bg-slate-900/40 border-slate-800/50 backdrop-blur-sm hover:scale-130 transition-all duration-500 ease-out ${
+                  index === currentStat ? "active" : ""
                 }`}
-
+                style={index === currentStat ? {
+                  boxShadow: '0 0 12px rgba(16, 185, 129, 0.075), 0 0 25px rgba(52, 211, 153, 0.04)',
+                  transform: 'scale(1.15)',
+                  zIndex: 10
+                } : {}}
               >
                 <CardContent className="p-4 sm:p-6 text-center">
                   <div className="flex items-center justify-center mb-3 sm:mb-4">
-                    <div className="golden-icon-modern flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 group relative">
+                    <div
+                      className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 group relative"
+                      style={{
+                        background: "radial-gradient(circle at 30% 30%, #34D399 0%, #10b981 50%, #34D399 100%)",
+                        boxShadow: "0 0 10px rgba(52, 211, 153, 0.45), 0 0 20px rgba(16, 185, 129, 0.25), 0 4px 20px rgba(52, 211, 153, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1)",
+                        borderRadius: "16px",
+                        position: "relative",
+                        overflow: "hidden",
+                        transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
+                      }}
+                    >
                       {/* Inner highlight overlay */}
                       <div className="absolute inset-1 rounded-xl bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
                       {/* Icon with enhanced styling */}
                       <stat.icon
-                        className="w-6 h-6 sm:w-8 sm:h-8 text-black transition-all duration-500 group-hover:scale-125 relative z-10"
+                        className="w-6 h-6 sm:w-8 sm:h-8 text-black transition-all duration-700 group-hover:scale-150 relative z-10"
                         strokeWidth={2.5}
                         style={{
                           filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))',
-                          transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                          transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
                         }}
                       />
                       {/* Gradient overlay for depth */}
                       <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 text-gradient-gold">{stat.value}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 text-gradient-primary">{stat.value}</div>
                   <div className="text-xs sm:text-sm text-slate-400 font-medium">{stat.label}</div>
                   {index === currentStat && (
                     <div className="absolute inset-0 rounded-lg animate-pulse pointer-events-none hero-stat-pulse" />

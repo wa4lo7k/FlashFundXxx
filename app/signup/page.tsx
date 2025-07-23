@@ -483,9 +483,6 @@ export default function SignUpPage() {
                           required
                         />
                       </div>
-                      <p className="text-xs text-slate-400 mt-1">
-                        Include country code (e.g., +1, +44, +91) for automatic country detection
-                      </p>
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="country" className="text-sm font-semibold text-slate-300">

@@ -8,64 +8,60 @@ export default function HowItWorks() {
   const steps = [
     {
       step: "01",
-      title: "Choose Your Plan",
+      title: "Choose Your Learning Path",
       description:
-        "Select from instant accounts or evaluation challenges based on your trading style and experience level.",
+        "Select from instant simulation or skill assessment programs based on your trading experience and learning goals.",
       icon: Target,
       color: "emerald",
       details: [
-        "Instant accounts for immediate trading",
-        "1-step or 2-step evaluations available",
-        "Account sizes from $1K to $500K",
-        "Multiple trading platforms supported",
+        "Instant simulation for immediate practice",
+        "1-step or 2-step skill assessments available",
+        "Training account sizes from $1K to $500K",
+        "Multiple educational platforms supported",
       ],
       duration: "2 minutes",
-      bgIcon: "📊",
     },
     {
       step: "02",
-      title: "Complete Evaluation",
-      description: "Pass our trading evaluation or get instant access to start trading with our capital immediately.",
+      title: "Complete Skill Assessment",
+      description: "Pass our trading skill assessment or get instant access to start practicing with simulated capital.",
       icon: Gauge,
       color: "teal",
       details: [
-        "Realistic trading conditions",
-        "Clear and fair trading rules",
-        "Professional risk management",
-        "24/7 support during evaluation",
+        "Realistic market simulation conditions",
+        "Clear and fair educational guidelines",
+        "Professional risk management training",
+        "24/7 learning support during assessment",
       ],
       duration: "1-30 days",
-      bgIcon: "⚡",
     },
     {
       step: "03",
-      title: "Get Funded",
-      description: "Receive your funded account credentials and start trading with institutional-grade infrastructure.",
+      title: "Access Training Account",
+      description: "Receive your training account credentials and start practicing with institutional-grade simulation infrastructure.",
       icon: DollarSign,
       color: "blue",
       details: [
-        "Instant account activation",
-        "MetaTrader 4/5 & cTrader access",
-        "Ultra-low latency execution",
-        "Advanced risk management tools",
+        "Instant training account activation",
+        "MetaTrader 4/5 & cTrader educational access",
+        "Ultra-low latency simulation execution",
+        "Advanced risk management learning tools",
       ],
       duration: "24 hours",
-      bgIcon: "💰",
     },
     {
       step: "04",
-      title: "Trade & Profit",
-      description: "Keep up to 90% of your profits with instant payouts and professional support.",
+      title: "Practice & Earn Rewards",
+      description: "Keep up to 90% of your training profits with instant reward recognition and professional mentorship.",
       icon: Trophy,
       color: "emerald",
       details: [
-        "Profit splits up to 90%",
-        "Instant payout requests",
-        "Performance-based rewards",
-        "Ongoing support & guidance",
+        "Training reward splits up to 90%",
+        "Instant reward recognition requests",
+        "Performance-based educational rewards",
+        "Ongoing mentorship & guidance",
       ],
       duration: "Ongoing",
-      bgIcon: "🏆",
     },
   ]
 
@@ -119,9 +115,6 @@ export default function HowItWorks() {
 
               <Card className="bg-slate-900/40 border-slate-800/50 hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all duration-500 group-hover:scale-105 h-full backdrop-blur-sm">
                 <CardHeader className="text-center pb-4 relative">
-                  {/* Background Icon */}
-                  <div className="absolute top-4 right-4 text-4xl opacity-10">{step.bgIcon}</div>
-
                   {/* Step Icon */}
                   <div
                     className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-${step.color}-500/20 to-${step.color}-600/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 relative border border-${step.color}-500/20`}

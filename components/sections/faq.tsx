@@ -6,63 +6,63 @@ import { HelpCircle } from "lucide-react"
 
 const faqs = [
   {
-    q: "What objectives must be met during the Challenge Phase?",
+    q: "What learning objectives must be achieved during the Skill Assessment Phase?",
     a: [
-      "Required profit achievement: 8% of account balance",
-      "Maximum daily loss limit: 5% of account value",
-      "Total account drawdown threshold: 10% maximum",
-      "No minimum trading day requirements"
+      "Required performance target: 8% portfolio growth demonstration",
+      "Risk management limit: 5% maximum daily loss in simulation",
+      "Total risk threshold: 10% maximum drawdown in training account",
+      "No minimum trading day requirements for skill demonstration"
     ],
   },
   {
-    q: "Which trading activities are permitted during evaluation?",
+    q: "Which trading strategies are permitted during skill evaluation?",
     a: [
-      "Economic news event trading: Fully permitted",
-      "Position holding overnight: Allowed without restrictions",
-      "Weekend position maintenance: Forbidden – positions must close before Friday market end",
-      "High-frequency trading algorithms: Permitted during evaluation period",
-      "Required position hold time: Minimum 2-minute duration before closure"
+      "Economic news event trading: Fully permitted in simulation",
+      "Position holding overnight: Allowed without restrictions in training",
+      "Weekend position maintenance: Forbidden – educational focus on weekday markets",
+      "Algorithmic trading strategies: Permitted during evaluation period",
+      "Required position hold time: Minimum 2-minute duration for educational purposes"
     ],
   },
   {
-    q: "How does the single trade profit limitation work?",
+    q: "How does the single trade performance limitation work in training?",
     a: [
-      "Individual trade profit cap: 35% of total account gains",
-      "Consecutive trades within 2 minutes: Treated as single position",
-      "Maximum daily earnings from one trade: 35% of total profits",
-      "Violation consequences: Potential profit adjustments or reductions"
+      "Individual trade performance cap: 35% of total portfolio gains",
+      "Consecutive trades within 2 minutes: Treated as single learning exercise",
+      "Maximum daily performance from one trade: 35% of total training profits",
+      "Educational consequences: Performance adjustments for learning purposes"
     ],
   },
   {
-    q: "What are the position sizing consistency requirements?",
+    q: "What are the position sizing consistency requirements for skill development?",
     a: [
       "Average position calculation: Total volume ÷ Number of trades",
       "Minimum position size: 25% of calculated average (Average × 0.25)",
       "Maximum position size: 200% of calculated average (Average × 2.00)",
       "Practical example: 2.0 lot average allows 0.5 to 4.0 lot range",
-      "Non-compliant trades: Excluded from payout calculations",
-      "Position grouping: Trades within 2-minute intervals count as one"
+      "Non-compliant trades: Excluded from skill assessment calculations",
+      "Position grouping: Trades within 2-minute intervals count as one learning exercise"
     ],
   },
   {
-    q: "What limitations apply to funded account trading?",
+    q: "What limitations apply to advanced skill development programs?",
     a: [
-      "Automated trading systems: Completely forbidden on live accounts",
-      "Position hedging: Permitted within same account only, no cross-account hedging",
-      "Weekend position holding: Absolutely prohibited (immediate breach)",
-      "Maximum trading layers: Limited to 2 concurrent layers",
-      "Martingale trading approach: Strictly forbidden",
-      "Position duration requirement: 2-minute minimum holding period"
+      "Automated trading systems: Completely forbidden in live simulation accounts",
+      "Position hedging: Permitted within same training account only, no cross-account hedging",
+      "Weekend position holding: Absolutely prohibited (immediate skill assessment failure)",
+      "Maximum trading layers: Limited to 2 concurrent layers for educational purposes",
+      "Martingale trading approach: Strictly forbidden in skill development",
+      "Position duration requirement: 2-minute minimum holding period for learning"
     ],
   },
   {
-    q: "How does the profit sharing and withdrawal system work?",
+    q: "How does the performance reward and recognition system work?",
     a: [
-      "Trader profit retention: Between 50% and 90% of generated profits",
-      "Payout processing schedule: Every two weeks",
-      "Distribution calculation: Based on individual performance metrics and contract terms",
-      "Position sizing compliance: Must maintain consistency for withdrawal eligibility",
-      "Rule adherence requirement: All trading guidelines must be followed for payouts"
+      "Student reward retention: Between 50% and 90% of generated training profits",
+      "Recognition processing schedule: Every two weeks",
+      "Reward calculation: Based on individual skill development metrics and program terms",
+      "Position sizing compliance: Must maintain consistency for reward eligibility",
+      "Rule adherence requirement: All training guidelines must be followed for rewards"
     ],
   },
 ]

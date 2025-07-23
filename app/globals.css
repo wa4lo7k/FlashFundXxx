@@ -111,25 +111,25 @@
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
 
-/* Silver-Gold gradients - Sophisticated blend */
+/* Emerald gradients - Sophisticated blend */
 .gradient-gold {
-  background: linear-gradient(135deg, #B8A082 0%, #A0956B 50%, #B8A082 100%);
+  background: linear-gradient(135deg, #34D399 0%, #10b981 50%, #34D399 100%);
 }
 
 .gradient-gold-subtle {
-  background: linear-gradient(135deg, #B8A082 0%, #A0956B 100%);
+  background: linear-gradient(135deg, #34D399 0%, #10b981 100%);
 }
 
 .gradient-gold-warm {
-  background: linear-gradient(135deg, #E5E4E2 0%, #B8A082 50%, #A0956B 100%);
+  background: linear-gradient(135deg, #6ee7b7 0%, #34D399 50%, #10b981 100%);
 }
 
 .gradient-silver {
-  background: linear-gradient(135deg, #E5E4E2 0%, #C0C0C0 100%);
+  background: linear-gradient(135deg, #6ee7b7 0%, #34D399 100%);
 }
 
 .gradient-silver-gold {
-  background: linear-gradient(135deg, #E5E4E2 0%, #B8A082 50%, #A0956B 100%);
+  background: linear-gradient(135deg, #6ee7b7 0%, #34D399 50%, #10b981 100%);
 }
 
 /* Professional text gradients */

@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Educational content
+Allow: /education
+Allow: /courses
+Allow: /training
+Allow: /simulation
+Allow: /learning
+
+# Main pages
+Allow: /signup
+Allow: /login
+Allow: /pricing
+Allow: /faq
+
+# Disallow admin and private areas
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api
+Disallow: /private
+
+# Sitemap
+Sitemap: https://flashfundx.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

@@ -43,7 +43,7 @@ serve(async (req) => {
     console.log('Crypto currency received:', requestData.cryptoCurrency)
 
     // Validate required fields
-    const requiredFields = ['orderId', 'userId', 'accountType', 'accountSize', 'platformType', 'cryptoCurrency', 'amount', 'finalAmount']
+    const requiredFields: (keyof CreatePaymentRequest)[] = ['orderId', 'userId', 'accountType', 'accountSize', 'platformType', 'cryptoCurrency', 'amount', 'finalAmount']
     const missingFields = requiredFields.filter(field => !requestData[field])
 
     if (missingFields.length > 0) {
@@ -159,10 +159,11 @@ serve(async (req) => {
       console.log('NowPayments payment response:', paymentResponse)
     } catch (nowPaymentsError) {
       console.error('NowPayments API error:', nowPaymentsError)
+      const errorMessage = nowPaymentsError instanceof Error ? nowPaymentsError.message : 'Unknown NowPayments error'
       return new Response(
         JSON.stringify({
           success: false,
-          error: `NowPayments error: ${nowPaymentsError.message}`
+          error: `NowPayments error: ${errorMessage}`
         }),
         {
           status: 500,
@@ -217,11 +218,12 @@ serve(async (req) => {
 
   } catch (error) {
     console.error('Error creating crypto payment:', error)
-    
+    const errorMessage = error instanceof Error ? error.message : 'Internal server error'
+
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         success: false,
-        error: error.message || 'Internal server error' 
+        error: errorMessage
       }),
       { 
         status: 500, 

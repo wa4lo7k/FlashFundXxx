@@ -148,11 +148,12 @@ serve(async (req) => {
 
   } catch (error) {
     console.error('Error checking payment status:', error)
-    
+    const errorMessage = error instanceof Error ? error.message : 'Internal server error'
+
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         success: false,
-        error: error.message || 'Internal server error' 
+        error: errorMessage
       }),
       { 
         status: 500, 

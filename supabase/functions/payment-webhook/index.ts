@@ -106,11 +106,12 @@ serve(async (req) => {
           )
         } catch (deliveryError) {
           console.error(`Failed to deliver account for order ${order_id}:`, deliveryError)
-          
+          const errorMessage = deliveryError instanceof Error ? deliveryError.message : 'Unknown delivery error'
+
           await logPaymentEvent(
             order_id,
             'delivery_failed',
-            { error: deliveryError.message },
+            { error: errorMessage },
             payment_id
           )
           

@@ -177,11 +177,60 @@ The platform is fully responsive and optimized for:
 
 ## 🤝 Contributing
 
+### File Ownership & Collaboration Guidelines
+
+To ensure smooth collaboration and prevent conflicts, please follow these file ownership guidelines:
+
+#### 👤 **wa4lo7k's Areas** (Safe to modify)
+```
+✅ app/dashboard/              # User dashboard pages
+✅ components/dashboard/       # Dashboard-specific components
+✅ components/ui/              # Base UI components
+✅ components/sections/        # Landing page sections
+✅ public/ (your assets)       # Your static assets
+```
+
+#### 🔒 **Friend's Areas** (Do not modify)
+```
+❌ app/admin/                  # Admin portal pages
+❌ components/admin/           # Admin-specific components
+❌ lib/admin-*                 # Admin utility functions
+```
+
+#### 🤝 **Shared Areas** (Coordinate before modifying)
+```
+⚠️ app/layout.tsx             # Root layout
+⚠️ app/globals.css            # Global styles
+⚠️ package.json               # Dependencies
+⚠️ tailwind.config.ts         # Tailwind configuration
+```
+
+### Git Workflow for wa4lo7k
+
+1. **Create feature branch**: `git checkout -b wa4lo7k/feature-name`
+2. **Check file ownership**: `./check-files.sh` (before committing)
+3. **Stage specific files**: `git add app/dashboard/page.tsx components/ui/button.tsx`
+4. **Commit changes**: `git commit -m 'Descriptive message'`
+5. **Push branch**: `git push -u origin wa4lo7k/feature-name`
+6. **Create Pull Request** on GitHub
+
+### Pre-Commit Safety Check
+
+Use the provided script to prevent accidentally committing admin files:
+
+```bash
+# Run before each commit
+./check-files.sh && git commit -m "Your message"
+```
+
+### General Contributing Guidelines
+
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+2. Create a feature branch (`git checkout -b wa4lo7k/amazing-feature`)
+3. Run file ownership check (`./check-files.sh`)
+4. Commit your changes (`git commit -m 'Add amazing feature'`)
+5. Push to the branch (`git push origin wa4lo7k/amazing-feature`)
+6. Open a Pull Request
 
 ## 📄 License
 

@@ -29,18 +29,19 @@ NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
 
-## ✅ Solution 2: Using vercel.json (Alternative)
+## ✅ Solution 2: Manual Vercel CLI Deployment (Alternative)
 
-The `vercel.json` file in the root directory should handle the configuration automatically:
+If the dashboard method doesn't work, you can deploy directly from the Frontend directory:
 
-```json
-{
-  "buildCommand": "cd Frontend && npm run build",
-  "outputDirectory": "Frontend/.next", 
-  "installCommand": "cd Frontend && npm install",
-  "framework": "nextjs",
-  "rootDirectory": "Frontend"
-}
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Navigate to Frontend directory
+cd Frontend
+
+# Deploy from Frontend directory
+vercel --prod
 ```
 
 ## 🔧 Manual Deployment Steps

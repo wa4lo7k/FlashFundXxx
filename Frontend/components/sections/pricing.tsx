@@ -44,27 +44,47 @@ export default function Pricing() {
     return Math.round(basePrice * (multipliers[accountType as keyof typeof multipliers] || 1))
   }
 
+  // Helper function to format price with "k" abbreviation
+  const formatPrice = (price: number): string => {
+    if (price >= 1000) {
+      const kValue = price / 1000
+      // Remove decimal if it's a whole number
+      return kValue % 1 === 0 ? `${kValue}k` : `${kValue.toFixed(1)}k`
+    }
+    return price.toString()
+  }
+
+  // Helper function to format account size with "k" abbreviation
+  const formatAccountSize = (amount: number): string => {
+    if (amount >= 1000) {
+      const kValue = amount / 1000
+      // Remove decimal if it's a whole number, add $ prefix
+      return kValue % 1 === 0 ? `$${kValue}k` : `$${kValue.toFixed(1)}k`
+    }
+    return `$${amount}`
+  }
+
   // Get unique account sizes from trading rules
   const dynamicAccountSizes = Array.from(new Set(tradingRules.map(rule => rule.account_size)))
     .sort((a, b) => a - b)
     .map(size => ({
       value: `${size / 1000}k`,
-      label: databaseUtils.formatCurrency(size).replace('.00', ''),
-      popular: size === 25000,
+      label: formatAccountSize(size),
+      popular: size === 100000,
       numericValue: size
     }))
 
   // Fallback to static data if no trading rules loaded
   const fallbackSizes = [
-    { value: "1k", label: "$1K", popular: false, numericValue: 1000 },
-    { value: "3k", label: "$3K", popular: false, numericValue: 3000 },
-    { value: "5k", label: "$5K", popular: false, numericValue: 5000 },
-    { value: "10k", label: "$10K", popular: false, numericValue: 10000 },
-    { value: "25k", label: "$25K", popular: true, numericValue: 25000 },
-    { value: "50k", label: "$50K", popular: false, numericValue: 50000 },
-    { value: "100k", label: "$100K", popular: false, numericValue: 100000 },
-    { value: "200k", label: "$200K", popular: false, numericValue: 200000 },
-    { value: "500k", label: "$500K", popular: false, numericValue: 500000 },
+    { value: "1k", label: "$1k", popular: false, numericValue: 1000 },
+    { value: "3k", label: "$3k", popular: false, numericValue: 3000 },
+    { value: "5k", label: "$5k", popular: false, numericValue: 5000 },
+    { value: "10k", label: "$10k", popular: false, numericValue: 10000 },
+    { value: "25k", label: "$25k", popular: false, numericValue: 25000 },
+    { value: "50k", label: "$50k", popular: false, numericValue: 50000 },
+    { value: "100k", label: "$100k", popular: true, numericValue: 100000 },
+    { value: "200k", label: "$200k", popular: false, numericValue: 200000 },
+    { value: "500k", label: "$500k", popular: false, numericValue: 500000 },
   ]
 
   const accountSizes = dynamicAccountSizes.length > 0 ? dynamicAccountSizes : fallbackSizes
@@ -136,22 +156,22 @@ export default function Pricing() {
   const plans = [
     {
       id: "instant",
-      name: "Instant Accounts",
+      name: "Instant Training Program",
       shortName: "Instant",
-      description: "Start trading immediately with no evaluation period",
+      description: "Start practicing immediately with no skill assessment period",
       icon: Zap,
       color: "emerald",
       popular: false,
       badge: "No Wait",
       features: [
-        "Instant account activation",
-        "No evaluation required",
-        "Up to 90% profit split",
-        "5% maximum drawdown",
-        "Weekend holding allowed",
-        "News trading permitted",
-        "Expert advisors allowed",
-        "24/7 support",
+        "Instant training account activation",
+        "No skill assessment required",
+        "Up to 90% training reward split",
+        "5% maximum educational drawdown",
+        "Weekend practice allowed",
+        "News trading education permitted",
+        "Expert advisor learning allowed",
+        "24/7 learning support",
       ],
       specs: {
         profitSplit: "Up to 90%",
@@ -164,22 +184,22 @@ export default function Pricing() {
     },
     {
       id: "hft",
-      name: "HFT Accounts",
-      shortName: "HFT",
-      description: "High-frequency trading with ultra-low latency execution",
+      name: "Advanced Training Program",
+      shortName: "Advanced",
+      description: "High-frequency trading education with ultra-low latency simulation",
       icon: BarChart3,
       color: "teal",
       popular: true,
       badge: "Most Popular",
       features: [
-        "Ultra-low latency execution",
-        "Co-located servers",
-        "Up to 85% profit split",
-        "6% maximum drawdown",
-        "Scalping strategies allowed",
-        "Advanced order types",
-        "Institutional liquidity",
-        "Priority support",
+        "Ultra-low latency simulation execution",
+        "Co-located educational servers",
+        "Up to 85% training reward split",
+        "6% maximum educational drawdown",
+        "Scalping strategy education allowed",
+        "Advanced order type training",
+        "Institutional simulation liquidity",
+        "Priority learning support",
       ],
       specs: {
         profitSplit: "Up to 85%",
@@ -192,22 +212,22 @@ export default function Pricing() {
     },
     {
       id: "oneStep",
-      name: "1-Step Evaluation",
+      name: "1-Step Skill Assessment",
       shortName: "1-Step",
-      description: "Single phase challenge with competitive pricing",
+      description: "Single phase skill development program with competitive pricing",
       icon: Target,
       color: "blue",
       popular: false,
       badge: "Single Phase",
       features: [
-        "Single evaluation phase",
-        "30-day time limit",
-        "Up to 80% profit split",
-        "8% maximum drawdown",
-        "Refundable fee on success",
-        "Flexible trading rules",
-        "Multiple attempts allowed",
-        "Educational resources",
+        "Single skill assessment phase",
+        "30-day learning period",
+        "Up to 80% training reward split",
+        "8% maximum educational drawdown",
+        "Refundable fee on skill demonstration",
+        "Flexible learning rules",
+        "Multiple learning attempts allowed",
+        "Comprehensive educational resources",
       ],
       specs: {
         profitSplit: "Up to 80%",
@@ -220,22 +240,22 @@ export default function Pricing() {
     },
     {
       id: "twoStep",
-      name: "2-Step Evaluation",
+      name: "2-Step Skill Development",
       shortName: "2-Step",
-      description: "Traditional evaluation with highest profit splits",
+      description: "Traditional skill development program with highest training reward splits",
       icon: Award,
       color: "purple",
       popular: false,
       badge: "Best Value",
       features: [
-        "Two-phase evaluation",
-        "Phase 1: 30 days",
-        "Phase 2: 60 days",
-        "Up to 90% profit split",
-        "10% maximum drawdown",
-        "Most affordable option",
-        "Comprehensive training",
-        "Community support",
+        "Two-phase skill development",
+        "Phase 1: 30 days learning",
+        "Phase 2: 60 days practice",
+        "Up to 90% training reward split",
+        "10% maximum educational drawdown",
+        "Most affordable learning option",
+        "Comprehensive educational training",
+        "Learning community support",
       ],
       specs: {
         profitSplit: "Up to 90%",
@@ -249,11 +269,11 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 lg:py-32 relative">
+    <section id="pricing" className="relative">
       {/* Professional Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 py-16 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge className="mb-6 glass-card text-emerald-300 px-6 py-2 font-medium">
@@ -275,12 +295,13 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-3 max-w-5xl mx-auto">
             {accountSizes.map((size) => (
               <button
                 key={size.value}
                 onClick={() => setSelectedSize(size.value)}
-                className={`relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                type="button"
+                className={`relative px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
                   selectedSize === size.value
                     ? "gradient-primary text-white shadow-glow-emerald scale-105"
                     : "glass-card text-slate-300 hover:bg-slate-800/50 border border-slate-700/50"
@@ -296,15 +317,15 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-16">
           {plans.map((plan, index) => {
             const price = pricingData[selectedSize][plan.id]
 
             return (
               <Card
                 key={index}
-                className={`relative glass-card border-slate-800/50 hover:border-slate-700/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl ${
-                  plan.popular ? "ring-2 ring-emerald-500/30 shadow-glow-emerald" : ""
+                className={`relative glass-card border-slate-700/30 hover:border-green-500/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] ${
+                  plan.popular ? "ring-2 ring-slate-600/40 shadow-lg" : ""
                 }`}
               >
                 {plan.popular && (
@@ -335,7 +356,7 @@ export default function Pricing() {
                   <p className="text-sm text-slate-400 mb-4 font-medium">{plan.description}</p>
 
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold text-emerald-400">${price}</div>
+                    <div className="text-4xl font-bold text-emerald-400">${formatPrice(price)}</div>
                     <div className="text-sm text-slate-500 font-medium">
                       For {accountSizes.find((s) => s.value === selectedSize)?.label} account
                     </div>
@@ -349,8 +370,12 @@ export default function Pricing() {
                     <div className="space-y-2 text-xs">
                       {(() => {
                         const selectedAccountSize = accountSizes.find(size => size.value === selectedSize)
+                        let accountType = plan.id
+                        if (plan.id === 'oneStep') accountType = 'one_step'
+                        if (plan.id === 'twoStep') accountType = 'two_step'
+
                         const dynamicSpecs = selectedAccountSize
-                          ? getSpecsForAccountType(plan.id === 'oneStep' ? 'one_step' : plan.id === 'twoStep' ? 'two_step' : plan.id, selectedAccountSize.numericValue)
+                          ? getSpecsForAccountType(accountType, selectedAccountSize.numericValue)
                           : plan.specs
 
                         return (
@@ -388,24 +413,26 @@ export default function Pricing() {
                     ))}
                   </div>
 
-                  <Link href="/signup">
-                    <Button
-                      className={`w-full ${
-                        plan.color === "emerald"
-                          ? "gradient-primary shadow-glow-emerald"
-                          : plan.color === "teal"
-                            ? "gradient-secondary shadow-glow-teal"
-                            : plan.color === "blue"
-                              ? "gradient-accent shadow-glow-blue"
-                              : "bg-gradient-to-r from-purple-500 to-purple-600"
-                      } text-white font-semibold transition-all duration-300 hover:scale-105`}
-                    >
-                      Get Started
-                    </Button>
-                  </Link>
+                  <div className="mt-6 mb-4">
+                    <Link href="/signup">
+                      <Button
+                        className={`w-full ${
+                          plan.color === "emerald"
+                            ? "gradient-primary shadow-glow-emerald"
+                            : plan.color === "teal"
+                              ? "gradient-secondary shadow-glow-teal"
+                              : plan.color === "blue"
+                                ? "gradient-accent shadow-glow-blue"
+                                : "bg-gradient-to-r from-purple-500 to-purple-600"
+                        } text-white font-semibold transition-all duration-300 hover:scale-[1.02]`}
+                      >
+                        Get Started
+                      </Button>
+                    </Link>
+                  </div>
 
                   <div className="text-center">
-                    <button className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors font-medium">
+                    <button type="button" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors font-medium">
                       View All Features →
                     </button>
                   </div>
@@ -415,113 +442,138 @@ export default function Pricing() {
           })}
         </div>
 
-        {/* Professional Comparison Table */}
+        {/* Enhanced Professional Comparison Table */}
         <div className="glass rounded-2xl p-8 border border-slate-800/30 mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 text-white">Detailed Comparison</h3>
+          <div className="text-center mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-secondary">Detailed Comparison</h3>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              Compare all features across our trading programs to find your perfect match
+            </p>
+          </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-700/50">
-                  <th className="text-left py-4 text-slate-300 font-bold">Feature</th>
-                  <th className="text-center py-4 text-emerald-400 font-bold">Instant</th>
-                  <th className="text-center py-4 text-teal-400 font-bold">HFT</th>
-                  <th className="text-center py-4 text-blue-400 font-bold">1-Step</th>
-                  <th className="text-center py-4 text-purple-400 font-bold">2-Step</th>
+                <tr className="border-b-2 border-slate-700/50">
+                  <th className="text-left py-6 px-4 text-slate-300 font-bold text-base">Feature</th>
+                  <th className="text-center py-6 px-4 bg-gradient-to-b from-emerald-500/10 to-emerald-500/5 border-l border-r border-emerald-500/20">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center shadow-glow-emerald">
+                        <Zap className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-emerald-400 font-bold text-base">Instant</span>
+                    </div>
+                  </th>
+                  <th className="text-center py-6 px-4 bg-gradient-to-b from-teal-500/10 to-teal-500/5 border-l border-r border-teal-500/20">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-8 h-8 rounded-lg gradient-secondary flex items-center justify-center shadow-glow-teal">
+                        <BarChart3 className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-teal-400 font-bold text-base">HFT</span>
+                    </div>
+                  </th>
+                  <th className="text-center py-6 px-4 bg-gradient-to-b from-blue-500/10 to-blue-500/5 border-l border-r border-blue-500/20">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-8 h-8 rounded-lg gradient-accent flex items-center justify-center shadow-glow-blue">
+                        <Target className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-blue-400 font-bold text-base">1-Step</span>
+                    </div>
+                  </th>
+                  <th className="text-center py-6 px-4 bg-gradient-to-b from-purple-500/10 to-purple-500/5 border-l border-r border-purple-500/20">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
+                        <Award className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-purple-400 font-bold text-base">2-Step</span>
+                    </div>
+                  </th>
                 </tr>
               </thead>
               <tbody className="text-slate-300">
-                <tr className="border-b border-slate-800/30">
-                  <td className="py-4 font-semibold">Evaluation Period</td>
-                  <td className="text-center py-4">
-                    <Badge className="glass-card text-emerald-300 border-emerald-500/30 font-semibold">None</Badge>
+                <tr className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Evaluation Period</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10">
+                    <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-semibold px-3 py-1">None</Badge>
                   </td>
-                  <td className="text-center py-4">
-                    <Badge className="glass-card text-teal-300 border-teal-500/30 font-semibold">None</Badge>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10">
+                    <Badge className="bg-teal-500/20 text-teal-300 border-teal-500/40 font-semibold px-3 py-1">None</Badge>
                   </td>
-                  <td className="text-center py-4 font-medium">30 days</td>
-                  <td className="text-center py-4 font-medium">30 + 60 days</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10 font-semibold">30 days</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10 font-semibold">30 + 60 days</td>
                 </tr>
-                <tr className="border-b border-slate-800/30">
-                  <td className="py-4 font-semibold">Profit Split</td>
-                  <td className="text-center py-4 text-emerald-400 font-bold">Up to 90%</td>
-                  <td className="text-center py-4 text-teal-400 font-bold">Up to 85%</td>
-                  <td className="text-center py-4 text-blue-400 font-bold">Up to 80%</td>
-                  <td className="text-center py-4 text-purple-400 font-bold">Up to 90%</td>
+                <tr className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Profit Split</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10 text-emerald-400 font-bold text-base">Up to 90%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10 text-teal-400 font-bold text-base">Up to 85%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10 text-blue-400 font-bold text-base">Up to 80%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10 text-purple-400 font-bold text-base">Up to 90%</td>
                 </tr>
-                <tr className="border-b border-slate-800/30">
-                  <td className="py-4 font-semibold">Maximum Drawdown</td>
-                  <td className="text-center py-4 font-semibold">5%</td>
-                  <td className="text-center py-4 font-semibold">6%</td>
-                  <td className="text-center py-4 font-semibold">8%</td>
-                  <td className="text-center py-4 font-semibold">10%</td>
+                <tr className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Maximum Drawdown</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10 font-semibold text-white">5%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10 font-semibold text-white">6%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10 font-semibold text-white">8%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10 font-semibold text-white">10%</td>
                 </tr>
-                <tr className="border-b border-slate-800/30">
-                  <td className="py-4 font-semibold">Daily Drawdown</td>
-                  <td className="text-center py-4 font-semibold">3%</td>
-                  <td className="text-center py-4 font-semibold">4%</td>
-                  <td className="text-center py-4 font-semibold">5%</td>
-                  <td className="text-center py-4 font-semibold">5%</td>
+                <tr className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Daily Drawdown</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10 font-semibold text-white">3%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10 font-semibold text-white">4%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10 font-semibold text-white">5%</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10 font-semibold text-white">5%</td>
                 </tr>
-                <tr className="border-b border-slate-800/30">
-                  <td className="py-4 font-semibold">Minimum Trading Days</td>
-                  <td className="text-center py-4">
-                    <Badge className="glass-card text-emerald-300 border-emerald-500/30 font-semibold">None</Badge>
+                <tr className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Minimum Trading Days</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10">
+                    <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-semibold px-3 py-1">None</Badge>
                   </td>
-                  <td className="text-center py-4">
-                    <Badge className="glass-card text-teal-300 border-teal-500/30 font-semibold">None</Badge>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10">
+                    <Badge className="bg-teal-500/20 text-teal-300 border-teal-500/40 font-semibold px-3 py-1">None</Badge>
                   </td>
-                  <td className="text-center py-4 font-semibold">5 days</td>
-                  <td className="text-center py-4 font-semibold">5 days</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10 font-semibold text-white">5 days</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10 font-semibold text-white">5 days</td>
                 </tr>
-                <tr className="border-b border-slate-800/30">
-                  <td className="py-4 font-semibold">Refundable Fee</td>
-                  <td className="text-center py-4">❌</td>
-                  <td className="text-center py-4">❌</td>
-                  <td className="text-center py-4">
-                    <Badge className="glass-card text-blue-300 border-blue-500/30 font-semibold">✅ Yes</Badge>
+                <tr className="border-b border-slate-800/30 hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Refundable Fee</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10">
+                    <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-500/20 border border-red-500/40">
+                      <svg className="w-3 h-3 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
                   </td>
-                  <td className="text-center py-4">
-                    <Badge className="glass-card text-purple-300 border-purple-500/30 font-semibold">✅ Yes</Badge>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10">
+                    <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-500/20 border border-red-500/40">
+                      <svg className="w-3 h-3 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                  </td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10">
+                    <span className="text-blue-300 font-semibold">Yes</span>
+                  </td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10">
+                    <span className="text-purple-300 font-semibold">Yes</span>
                   </td>
                 </tr>
-                <tr>
-                  <td className="py-4 font-semibold">Best For</td>
-                  <td className="text-center py-4 text-xs font-medium">Experienced traders</td>
-                  <td className="text-center py-4 text-xs font-medium">Scalpers & HFT</td>
-                  <td className="text-center py-4 text-xs font-medium">Quick evaluation</td>
-                  <td className="text-center py-4 text-xs font-medium">Budget conscious</td>
+                <tr className="hover:bg-slate-800/20 transition-colors duration-300 rounded-lg hover:rounded-lg">
+                  <td className="py-5 px-4 font-bold text-lg text-slate-100 tracking-wide">Best For</td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-emerald-500/5 to-transparent border-l border-r border-emerald-500/10">
+                    <span className="text-emerald-300 font-semibold">Experienced traders</span>
+                  </td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-teal-500/5 to-transparent border-l border-r border-teal-500/10">
+                    <span className="text-teal-300 font-semibold">Scalpers & HFT</span>
+                  </td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-blue-500/5 to-transparent border-l border-r border-blue-500/10">
+                    <span className="text-blue-300 font-semibold">Quick evaluation</span>
+                  </td>
+                  <td className="text-center py-5 px-4 bg-gradient-to-b from-purple-500/5 to-transparent border-l border-r border-purple-500/10">
+                    <span className="text-purple-300 font-semibold">Budget conscious</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-
-        {/* Professional Bottom CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-6 glass rounded-2xl p-8 border border-slate-800/30">
-            <div className="text-left">
-              <div className="text-xl font-bold text-white mb-2 flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-emerald-400" />
-                <span>Need help choosing?</span>
-              </div>
-              <div className="text-sm text-slate-400 font-medium">
-                Our experts can help you select the perfect account type
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                variant="outline"
-                className="glass-card border-slate-600/50 text-slate-300 hover:bg-slate-800/50 font-semibold bg-transparent"
-              >
-                Contact Support
-              </Button>
-              <Link href="/signup">
-                <Button className="gradient-primary shadow-glow-emerald text-white font-semibold hover:scale-105 transition-all duration-300">
-                  Compare All Plans
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

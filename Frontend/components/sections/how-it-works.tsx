@@ -2,75 +2,71 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Target, Gauge, DollarSign, Trophy, ArrowRight, CheckCircle, Clock, Award } from "lucide-react"
+import { Target, Gauge, DollarSign, Trophy, ArrowRight, CheckCircle, Clock } from "lucide-react"
 
 export default function HowItWorks() {
   const steps = [
     {
       step: "01",
-      title: "Choose Your Plan",
+      title: "Choose Your Learning Path",
       description:
-        "Select from instant accounts or evaluation challenges based on your trading style and experience level.",
+        "Select from instant simulation or skill assessment programs based on your trading experience and learning goals.",
       icon: Target,
       color: "emerald",
       details: [
-        "Instant accounts for immediate trading",
-        "1-step or 2-step evaluations available",
-        "Account sizes from $1K to $500K",
-        "Multiple trading platforms supported",
+        "Instant simulation for immediate practice",
+        "1-step or 2-step skill assessments available",
+        "Training account sizes from $1K to $500K",
+        "Multiple educational platforms supported",
       ],
       duration: "2 minutes",
-      bgIcon: "📊",
     },
     {
       step: "02",
-      title: "Complete Evaluation",
-      description: "Pass our trading evaluation or get instant access to start trading with our capital immediately.",
+      title: "Complete Skill Assessment",
+      description: "Pass our trading skill assessment or get instant access to start practicing with simulated capital.",
       icon: Gauge,
       color: "teal",
       details: [
-        "Realistic trading conditions",
-        "Clear and fair trading rules",
-        "Professional risk management",
-        "24/7 support during evaluation",
+        "Realistic market simulation conditions",
+        "Clear and fair educational guidelines",
+        "Professional risk management training",
+        "24/7 learning support during assessment",
       ],
       duration: "1-30 days",
-      bgIcon: "⚡",
     },
     {
       step: "03",
-      title: "Get Funded",
-      description: "Receive your funded account credentials and start trading with institutional-grade infrastructure.",
+      title: "Access Training Account",
+      description: "Receive your training account credentials and start practicing with institutional-grade simulation infrastructure.",
       icon: DollarSign,
       color: "blue",
       details: [
-        "Instant account activation",
-        "MetaTrader 4/5 & cTrader access",
-        "Ultra-low latency execution",
-        "Advanced risk management tools",
+        "Instant training account activation",
+        "MetaTrader 4/5 & cTrader educational access",
+        "Ultra-low latency simulation execution",
+        "Advanced risk management learning tools",
       ],
       duration: "24 hours",
-      bgIcon: "💰",
     },
     {
       step: "04",
-      title: "Trade & Profit",
-      description: "Keep up to 90% of your profits with instant payouts and professional support.",
+      title: "Practice & Earn Rewards",
+      description: "Keep up to 90% of your training profits with instant reward recognition and professional mentorship.",
       icon: Trophy,
       color: "emerald",
       details: [
-        "Profit splits up to 90%",
-        "Instant payout requests",
-        "Performance-based rewards",
-        "Ongoing support & guidance",
+        "Training reward splits up to 90%",
+        "Instant reward recognition requests",
+        "Performance-based educational rewards",
+        "Ongoing mentorship & guidance",
       ],
       duration: "Ongoing",
-      bgIcon: "🏆",
     },
   ]
 
   return (
-    <section id="how-it-works" className="py-20 lg:py-32 relative">
+    <section id="how-it-works" className="relative">
       {/* Professional Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
 
@@ -91,7 +87,7 @@ export default function HowItWorks() {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
           <Badge className="mb-6 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 backdrop-blur-sm">
@@ -107,7 +103,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative group">
               {/* Connection Line */}
@@ -117,21 +113,13 @@ export default function HowItWorks() {
                 </div>
               )}
 
-              <Card className="bg-slate-900/40 border-slate-800/50 hover:border-slate-700/50 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-emerald-500/5 h-full backdrop-blur-sm">
+              <Card className="bg-slate-900/40 border-slate-800/50 hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all duration-500 group-hover:scale-105 h-full backdrop-blur-sm">
                 <CardHeader className="text-center pb-4 relative">
-                  {/* Background Icon */}
-                  <div className="absolute top-4 right-4 text-4xl opacity-10">{step.bgIcon}</div>
-
                   {/* Step Icon */}
                   <div
                     className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-${step.color}-500/20 to-${step.color}-600/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 relative border border-${step.color}-500/20`}
                   >
                     <step.icon className={`w-10 h-10 text-${step.color}-400`} />
-                    <div
-                      className={`absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg`}
-                    >
-                      {step.step}
-                    </div>
                   </div>
 
                   <CardTitle className="text-2xl mb-3 text-white">{step.title}</CardTitle>
@@ -159,20 +147,6 @@ export default function HowItWorks() {
               </Card>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-6 bg-slate-900/40 rounded-2xl p-8 border border-slate-800/50 backdrop-blur-sm">
-            <div className="text-left">
-              <div className="text-xl font-semibold text-white mb-2 flex items-center space-x-2">
-                <Award className="w-5 h-5 text-emerald-400" />
-                <span>Ready to get started?</span>
-              </div>
-              <div className="text-sm text-slate-400">Join thousands of funded traders today</div>
-            </div>
-            <ArrowRight className="w-6 h-6 text-emerald-400" />
-          </div>
         </div>
       </div>
     </section>

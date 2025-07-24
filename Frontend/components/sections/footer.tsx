@@ -2,228 +2,116 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Mail, Phone, MapPin, Shield, Award, Users, Clock, ExternalLink } from "lucide-react"
+import { Mail, Instagram, Facebook, Twitter, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative py-20 bg-slate-950 border-t border-slate-800/30 overflow-hidden">
-      {/* Professional Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
+    <footer className="relative bg-slate-950 border-t border-slate-800/20">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900/30" />
 
-      {/* Subtle accent lights */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/[0.015] rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/[0.015] rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 mb-16">
+      <div className="container mx-auto px-6 py-8 relative z-10">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
-              <Image
-                src="/logo.svg"
-                alt="FlashFundX"
-                width={200}
-                height={60}
-                className="h-10 w-auto"
-              />
-              <div className="text-xs text-slate-400 font-medium mt-2">Professional Trading Capital</div>
+            <div className="mb-4">
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/250 1.svg"
+                  alt="FlashFundX"
+                  width={195}
+                  height={126}
+                  className="h-8 w-auto mb-3 transition-all duration-300 group-hover:scale-105 opacity-90"
+                />
+              </Link>
             </div>
 
-            <p className="text-slate-400 mb-6 leading-relaxed font-medium">
-              Empowering traders worldwide with instant funding, institutional infrastructure, and professional support.
-            </p>
+            {/* Sophisticated Risk Disclosure Section */}
+            <div className="relative mb-4 max-w-sm">
+              <div className="border-l-2 border-slate-700/30 pl-3">
+                {/* Minimalist header */}
+                <h4 className="text-slate-400 font-normal text-xs uppercase tracking-wide mb-2 opacity-80">
+                  Risk Disclosure
+                </h4>
 
-            {/* Trust Badges */}
-            <div className="space-y-3 mb-6">
-              <Badge className="glass-card text-emerald-300 border-emerald-500/30 font-semibold">
-                <Award className="w-3 h-3 mr-2" />
-                Regulated & Licensed
-              </Badge>
-              <Badge className="glass-card text-teal-300 border-teal-500/30 font-semibold">
-                <Users className="w-3 h-3 mr-2" />
-                15,000+ Active Traders
-              </Badge>
+                {/* Refined typography with Netflix/Amazon styling */}
+                <div className="space-y-2 text-slate-400">
+                  <p className="text-xs leading-relaxed font-light tracking-wide">
+                    This site provides educational information on financial markets trading, not investment advice.
+                    FlashFundX does not offer investment services. It is not a broker.
+                    Third-party liquidity providers power our platforms and data feed.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          {/* Links Section */}
+          <div className="lg:col-span-1">
+            <h3 className="font-normal text-slate-300 mb-4 text-sm tracking-wide">Links</h3>
+            <ul className="space-y-2">
+              {[
+                { name: "Offer", href: "#" },
+                { name: "Features", href: "#" },
+                { name: "Loyalty Program", href: "#" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-slate-400 hover:text-slate-200 transition-colors text-xs font-light tracking-wide hover:underline underline-offset-2"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Section */}
+          <div className="lg:col-span-1">
+            <h3 className="font-normal text-slate-300 mb-4 text-sm tracking-wide">Contact Us</h3>
 
             {/* Social Links */}
-            <div className="flex space-x-3">
+            <div className="flex space-x-2 mb-4">
               {[
-                { icon: "𝕏", label: "Twitter" },
-                { icon: "📘", label: "Facebook" },
-                { icon: "📷", label: "Instagram" },
-                { icon: "💼", label: "LinkedIn" },
+                { icon: Twitter, label: "Twitter", href: "#" },
+                { icon: MessageCircle, label: "Telegram", href: "#" },
+                { icon: Instagram, label: "Instagram", href: "#" },
+                { icon: Facebook, label: "Facebook", href: "#" },
+                {
+                  icon: ({ className }: { className?: string }) => (
+                    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                  ),
+                  label: "Discord",
+                  href: "#"
+                },
               ].map((social) => (
                 <Link
                   key={social.label}
-                  href="#"
-                  className="w-10 h-10 glass-card rounded-xl flex items-center justify-center hover:bg-slate-700/50 transition-all duration-300 group hover:scale-110 border border-slate-700/30"
+                  href={social.href}
+                  className="w-7 h-7 bg-slate-800/50 rounded-md flex items-center justify-center hover:bg-slate-700/70 transition-all duration-200 hover:scale-105"
                   aria-label={social.label}
                 >
-                  <span className="text-sm group-hover:scale-110 transition-transform">{social.icon}</span>
+                  <social.icon className="w-3.5 h-3.5 text-slate-400 hover:text-slate-300" />
                 </Link>
               ))}
             </div>
-          </div>
 
-          {/* Products */}
-          <div>
-            <h3 className="font-bold text-white mb-6 text-lg">Products</h3>
-            <ul className="space-y-4">
-              {[
-                { name: "Instant Accounts", href: "#pricing" },
-                { name: "HFT Accounts", href: "#pricing" },
-                { name: "1-Step Evaluation", href: "#pricing" },
-                { name: "2-Step Evaluation", href: "#pricing" },
-                { name: "Account Scaling", href: "#" },
-                { name: "Risk Management", href: "#" },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors group font-medium"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform inline-block">{item.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h3 className="font-bold text-white mb-6 text-lg">Support</h3>
-            <ul className="space-y-4">
-              {[
-                { name: "Help Center", href: "#faq" },
-                { name: "Trading Rules", href: "#" },
-                { name: "Platform Setup", href: "#" },
-                { name: "Withdrawal Process", href: "#" },
-                { name: "Account Verification", href: "#" },
-                { name: "Contact Support", href: "#" },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors group font-medium"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform inline-block">{item.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-bold text-white mb-6 text-lg">Contact</h3>
-
-            <div className="glass-card p-4 rounded-xl border border-slate-700/30 mb-6">
-              <h4 className="font-semibold text-white mb-3 flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-emerald-400" />
-                <span>24/7 Support</span>
-              </h4>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <Link
-                    href="mailto:support@flashfundx.com"
-                    className="text-slate-300 hover:text-emerald-400 transition-colors font-medium"
-                  >
-                    support@flashfundx.com
-                  </Link>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-4 h-4 text-teal-400 flex-shrink-0" />
-                  <Link
-                    href="tel:+15551234567"
-                    className="text-slate-300 hover:text-teal-400 transition-colors font-medium"
-                  >
-                    +1 (555) 123-4567
-                  </Link>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-slate-300 font-medium">New York, NY</span>
-                </div>
-              </div>
+            {/* Contact Email */}
+            <div className="flex items-center space-x-2">
+              <Mail className="w-3.5 h-3.5 text-slate-400" />
+              <Link
+                href="mailto:support@flashfundx.com"
+                className="text-slate-400 hover:text-slate-200 transition-colors text-xs font-light tracking-wide hover:underline underline-offset-2"
+              >
+                support@flashfundx.com
+              </Link>
             </div>
-
-            {/* Legal Links */}
-            <div>
-              <h4 className="font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-3">
-                {[
-                  { name: "Privacy Policy", href: "#" },
-                  { name: "Terms of Service", href: "#" },
-                  { name: "Risk Disclosure", href: "#" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium flex items-center space-x-2 group"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
-                      <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-slate-800/30 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
-            {/* Copyright */}
-            <div className="text-center lg:text-left">
-              <p className="text-slate-400 text-sm font-medium mb-2">
-                © {currentYear} FlashFundX. All rights reserved.
-              </p>
-              <p className="text-slate-500 text-xs font-medium">
-                Trading involves substantial risk of loss. Past performance is not indicative of future results.
-              </p>
-            </div>
-
-            {/* Certifications */}
-            <div className="flex items-center space-x-6">
-              <div className="text-center">
-                <Badge className="glass-card text-emerald-300 border-emerald-500/30 mb-1 font-semibold">Licensed</Badge>
-                <div className="text-xs text-slate-500 font-medium">Regulated</div>
-              </div>
-              <div className="text-center">
-                <Badge className="glass-card text-teal-300 border-teal-500/30 mb-1 font-semibold">Insured</Badge>
-                <div className="text-xs text-slate-500 font-medium">Protected</div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="text-center lg:text-right">
-              <Button className="gradient-primary shadow-glow-emerald text-white font-semibold px-6 py-2 hover:scale-105 transition-all duration-300">
-                Start Trading
-              </Button>
-              <div className="text-xs text-slate-500 mt-2 font-medium">Get funded in minutes</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Risk Disclosure */}
-        <div className="mt-8 pt-6 border-t border-slate-800/30">
-          <div className="glass-card p-6 rounded-xl border border-slate-700/30">
-            <h4 className="font-semibold text-white mb-3 flex items-center space-x-2">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span>Risk Disclosure</span>
-            </h4>
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">
-              Trading involves significant risk of loss and may not be suitable for all investors. Past performance is
-              not indicative of future results. FlashFundX is a proprietary trading firm that provides funding to
-              qualified traders. All trading is conducted with the firm's capital.
-            </p>
           </div>
         </div>
       </div>

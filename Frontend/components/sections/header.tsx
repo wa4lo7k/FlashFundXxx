@@ -23,7 +23,6 @@ export default function Header() {
     { href: "#how-it-works", label: "How It Works" },
     { href: "#features", label: "Features" },
     { href: "#pricing", label: "Pricing" },
-    { href: "#testimonials", label: "Testimonials" },
     { href: "#faq", label: "FAQ" },
   ]
 
@@ -33,17 +32,17 @@ export default function Header() {
         isScrolled ? "glass shadow-2xl shadow-emerald-500/5" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* FlashFundX Logo */}
           <Link href="/" className="flex items-center group">
             <div className="relative group-hover:scale-105 transition-all duration-300">
               <Image
-                src="/logo.svg"
+                src="/logo 800 4.svg"
                 alt="FlashFundX"
-                width={180}
-                height={50}
-                className="h-8 w-auto"
+                width={360}
+                height={232}
+                className="h-12 sm:h-14 md:h-16 w-auto"
                 priority
               />
             </div>
@@ -87,7 +86,7 @@ export default function Header() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="glass border-slate-800/50 w-80">
+            <SheetContent side="right" className="glass border-slate-800/50 w-[min(80vw,320px)]">
               <div className="flex flex-col space-y-6 mt-8">
                 {navItems.map((item) => (
                   <Link

@@ -2,91 +2,84 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Zap, Shield, Globe, Users, Award, Headphones, TrendingUp, Lock, Wifi, Server } from "lucide-react"
 
 export default function WhyChooseUs() {
   const features = [
     {
-      title: "Instant Payouts",
-      description: "Get your profits paid out instantly with no waiting periods or complex withdrawal processes.",
+      title: "Instant Rewards",
+      description: "Get your training rewards recognized instantly with no waiting periods or complex processes.",
       icon: Zap,
       color: "emerald",
       stats: "< 24 hours",
-      bgIcon: "⚡",
       benefits: [
-        "No minimum payout amount",
-        "Multiple payment methods",
+        "No minimum reward threshold",
+        "Multiple recognition methods",
         "Automated processing",
-        "Weekend payouts available",
+        "Weekend rewards available",
       ],
     },
     {
-      title: "HFT Infrastructure",
-      description: "Ultra-low latency execution with institutional-grade servers located in major financial centers.",
+      title: "Professional Training Infrastructure",
+      description: "Ultra-low latency simulation with institutional-grade servers for realistic trading education.",
       icon: Server,
       color: "teal",
       stats: "< 10ms latency",
-      bgIcon: "🏢",
       benefits: [
-        "Tier-1 liquidity providers",
-        "Co-located servers",
+        "Tier-1 market data providers",
+        "Co-located educational servers",
         "99.9% uptime guarantee",
-        "Advanced order routing",
+        "Advanced simulation routing",
       ],
     },
     {
-      title: "24/7 Support",
-      description: "Round-the-clock support from our expert trading team and technical specialists.",
+      title: "24/7 Learning Support",
+      description: "Round-the-clock educational support from our expert trading mentors and technical specialists.",
       icon: Headphones,
       color: "blue",
       stats: "24/7/365",
-      bgIcon: "🎧",
       benefits: [
-        "Live chat support",
-        "Phone support available",
-        "Dedicated account managers",
-        "Multi-language support",
+        "Live chat learning support",
+        "Phone mentorship available",
+        "Dedicated learning coordinators",
+        "Multi-language educational support",
       ],
     },
     {
-      title: "Advanced Risk Controls",
-      description: "Sophisticated risk management tools to protect your account and maximize your trading potential.",
+      title: "Advanced Risk Education",
+      description: "Sophisticated risk management training tools to protect your learning account and maximize your educational potential.",
       icon: Shield,
       color: "emerald",
       stats: "99.8% protected",
-      bgIcon: "🛡️",
-      benefits: ["Real-time monitoring", "Customizable risk limits", "Automated stop-loss", "Position sizing tools"],
+      benefits: ["Real-time monitoring training", "Customizable risk learning limits", "Automated educational stop-loss", "Position sizing education tools"],
     },
     {
-      title: "Global Access",
-      description: "Trade from anywhere in the world with full platform access and regulatory compliance.",
+      title: "Global Learning Access",
+      description: "Learn from anywhere in the world with full educational platform access and comprehensive training.",
       icon: Globe,
       color: "teal",
       stats: "150+ countries",
-      bgIcon: "🌍",
-      benefits: ["Multi-jurisdiction licenses", "Local payment methods", "Regional support", "Compliance guaranteed"],
+      benefits: ["Multi-jurisdiction educational access", "Local learning methods", "Regional educational support", "Training compliance guaranteed"],
     },
     {
-      title: "Trader Community",
-      description: "Join our exclusive community of successful funded traders and learn from the best.",
+      title: "Student Community",
+      description: "Join our exclusive community of successful trading students and learn from experienced mentors.",
       icon: Users,
       color: "blue",
-      stats: "15,000+ traders",
-      bgIcon: "👥",
-      benefits: ["Private Discord server", "Weekly webinars", "Trading competitions", "Mentorship programs"],
+      stats: "15,000+ students",
+      benefits: ["Private Discord learning server", "Weekly educational webinars", "Trading skill competitions", "Mentorship programs"],
     },
   ]
 
   const achievements = [
-    { icon: Award, label: "Industry Leader", value: "2024", color: "emerald" },
-    { icon: TrendingUp, label: "Success Rate", value: "89%", color: "teal" },
-    { icon: Lock, label: "Funds Secured", value: "$50M+", color: "blue" },
+    { icon: TrendingUp, label: "Success Rate", value: "95%", color: "teal" },
+    { icon: Lock, label: "Funds Secured", value: "$850K", color: "blue" },
     { icon: Wifi, label: "Uptime", value: "99.9%", color: "emerald" },
+    { icon: Users, label: "Active Users", value: "15,000+", color: "blue" },
   ]
 
   return (
-    <section id="features" className="py-20 lg:py-32 relative">
+    <section id="features" className="relative">
       {/* Professional Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
 
@@ -113,14 +106,14 @@ export default function WhyChooseUs() {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
           <Badge className="mb-6 bg-teal-500/10 text-teal-300 border border-teal-500/20 backdrop-blur-sm">
             <Award className="w-4 h-4 mr-2" />
             Why Choose Us
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent leading-tight py-2">
             Industry-Leading Features
           </h2>
           <p className="text-xl md:text-2xl text-slate-400 max-w-4xl mx-auto leading-relaxed font-light">
@@ -129,7 +122,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Achievements Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-20">
           {achievements.map((achievement, index) => (
             <div key={index} className="text-center group">
               <div
@@ -144,16 +137,13 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="bg-slate-900/40 border-slate-800/50 hover:border-slate-700/50 transition-all duration-500 group hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/5 backdrop-blur-sm"
+              className="bg-slate-900/40 border-slate-800/50 hover:border-emerald-500/50 transition-all duration-500 group hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20 hover:shadow-emerald-400/10 backdrop-blur-sm"
             >
               <CardHeader className="pb-4 relative">
-                {/* Background Icon */}
-                <div className="absolute top-4 right-4 text-3xl opacity-10">{feature.bgIcon}</div>
-
                 <div className="flex items-start justify-between mb-4">
                   <div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-br from-${feature.color}-500/20 to-${feature.color}-600/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-${feature.color}-500/20`}
@@ -185,24 +175,7 @@ export default function WhyChooseUs() {
           ))}
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="text-center bg-gradient-to-r from-slate-900/40 to-slate-800/40 rounded-3xl p-8 border border-slate-700/50 backdrop-blur-sm">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Ready to experience the difference?</h3>
-          <p className="text-slate-400 mb-6 max-w-2xl mx-auto font-light">
-            Join thousands of successful traders who chose us for their funded trading journey
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-8 py-3 shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
-              Start Trading Now
-            </Button>
-            <Button
-              variant="outline"
-              className="border-slate-600/50 text-slate-300 hover:bg-slate-800/50 bg-slate-900/20 backdrop-blur-sm"
-            >
-              Compare Plans
-            </Button>
-          </div>
-        </div>
+
       </div>
     </section>
   )

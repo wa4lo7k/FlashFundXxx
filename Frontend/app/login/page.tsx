@@ -117,13 +117,15 @@ export default function LoginPage() {
           <div className="max-w-lg">
             {/* Logo */}
             <div className="mb-8">
-              <Image
-                src="/logo.svg"
-                alt="FlashFundX"
-                width={200}
-                height={60}
-                className="h-12 w-auto"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/logo 800 4.svg"
+                  alt="FlashFundX"
+                  width={310}
+                  height={200}
+                  className="h-14 w-auto transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
               <div className="text-xs text-slate-400 font-medium mt-2">Professional Trading Capital</div>
             </div>
 
@@ -158,7 +160,7 @@ export default function LoginPage() {
               </div>
               <div className="text-center glass-card p-4 rounded-xl border border-teal-500/20">
                 <Award className="w-6 h-6 text-teal-400 mx-auto mb-2" />
-                <div className="text-lg font-bold text-white">$2.4M+</div>
+                <div className="text-lg font-bold text-white">$850K+</div>
                 <div className="text-xs text-slate-400">Paid Out</div>
               </div>
               <div className="text-center glass-card p-4 rounded-xl border border-blue-500/20">
@@ -175,13 +177,15 @@ export default function LoginPage() {
           <div className="w-full max-w-md">
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
-              <Image
-                src="/logo.svg"
-                alt="FlashFundX"
-                width={160}
-                height={48}
-                className="h-8 w-auto"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/250 1.svg"
+                  alt="FlashFundX"
+                  width={195}
+                  height={126}
+                  className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
             </div>
 
             <Card className="glass border-slate-800/30 shadow-2xl">
@@ -209,7 +213,7 @@ export default function LoginPage() {
                       <Input
                         id="email"
                         type="email"
-                        placeholder="trader@example.com"
+                        placeholder="Enter your email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"

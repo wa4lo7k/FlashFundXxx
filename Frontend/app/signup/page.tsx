@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -29,6 +29,101 @@ import {
   Globe,
 } from "lucide-react"
 
+// Comprehensive country data with codes and phone prefixes
+const COUNTRIES_DATA = [
+  // Popular countries first
+  { name: "United States", code: "US", phone: "+1" },
+  { name: "United Kingdom", code: "GB", phone: "+44" },
+  { name: "Canada", code: "CA", phone: "+1" },
+  { name: "Australia", code: "AU", phone: "+61" },
+  { name: "Germany", code: "DE", phone: "+49" },
+  { name: "France", code: "FR", phone: "+33" },
+  { name: "Singapore", code: "SG", phone: "+65" },
+  { name: "Hong Kong", code: "HK", phone: "+852" },
+  { name: "Japan", code: "JP", phone: "+81" },
+  { name: "India", code: "IN", phone: "+91" },
+  // Alphabetical list of all other countries
+  { name: "Afghanistan", code: "AF", phone: "+93" },
+  { name: "Albania", code: "AL", phone: "+355" },
+  { name: "Algeria", code: "DZ", phone: "+213" },
+  { name: "Andorra", code: "AD", phone: "+376" },
+  { name: "Angola", code: "AO", phone: "+244" },
+  { name: "Argentina", code: "AR", phone: "+54" },
+  { name: "Armenia", code: "AM", phone: "+374" },
+  { name: "Austria", code: "AT", phone: "+43" },
+  { name: "Azerbaijan", code: "AZ", phone: "+994" },
+  { name: "Bahrain", code: "BH", phone: "+973" },
+  { name: "Bangladesh", code: "BD", phone: "+880" },
+  { name: "Belarus", code: "BY", phone: "+375" },
+  { name: "Belgium", code: "BE", phone: "+32" },
+  { name: "Bolivia", code: "BO", phone: "+591" },
+  { name: "Bosnia and Herzegovina", code: "BA", phone: "+387" },
+  { name: "Brazil", code: "BR", phone: "+55" },
+  { name: "Bulgaria", code: "BG", phone: "+359" },
+  { name: "Cambodia", code: "KH", phone: "+855" },
+  { name: "Chile", code: "CL", phone: "+56" },
+  { name: "China", code: "CN", phone: "+86" },
+  { name: "Colombia", code: "CO", phone: "+57" },
+  { name: "Croatia", code: "HR", phone: "+385" },
+  { name: "Cyprus", code: "CY", phone: "+357" },
+  { name: "Czech Republic", code: "CZ", phone: "+420" },
+  { name: "Denmark", code: "DK", phone: "+45" },
+  { name: "Ecuador", code: "EC", phone: "+593" },
+  { name: "Egypt", code: "EG", phone: "+20" },
+  { name: "Estonia", code: "EE", phone: "+372" },
+  { name: "Finland", code: "FI", phone: "+358" },
+  { name: "Georgia", code: "GE", phone: "+995" },
+  { name: "Greece", code: "GR", phone: "+30" },
+  { name: "Hungary", code: "HU", phone: "+36" },
+  { name: "Iceland", code: "IS", phone: "+354" },
+  { name: "Indonesia", code: "ID", phone: "+62" },
+  { name: "Ireland", code: "IE", phone: "+353" },
+  { name: "Israel", code: "IL", phone: "+972" },
+  { name: "Italy", code: "IT", phone: "+39" },
+  { name: "Jordan", code: "JO", phone: "+962" },
+  { name: "Kazakhstan", code: "KZ", phone: "+7" },
+  { name: "Kenya", code: "KE", phone: "+254" },
+  { name: "Kuwait", code: "KW", phone: "+965" },
+  { name: "Latvia", code: "LV", phone: "+371" },
+  { name: "Lebanon", code: "LB", phone: "+961" },
+  { name: "Lithuania", code: "LT", phone: "+370" },
+  { name: "Luxembourg", code: "LU", phone: "+352" },
+  { name: "Malaysia", code: "MY", phone: "+60" },
+  { name: "Malta", code: "MT", phone: "+356" },
+  { name: "Mexico", code: "MX", phone: "+52" },
+  { name: "Morocco", code: "MA", phone: "+212" },
+  { name: "Netherlands", code: "NL", phone: "+31" },
+  { name: "New Zealand", code: "NZ", phone: "+64" },
+  { name: "Nigeria", code: "NG", phone: "+234" },
+  { name: "Norway", code: "NO", phone: "+47" },
+  { name: "Pakistan", code: "PK", phone: "+92" },
+  { name: "Peru", code: "PE", phone: "+51" },
+  { name: "Philippines", code: "PH", phone: "+63" },
+  { name: "Poland", code: "PL", phone: "+48" },
+  { name: "Portugal", code: "PT", phone: "+351" },
+  { name: "Qatar", code: "QA", phone: "+974" },
+  { name: "Romania", code: "RO", phone: "+40" },
+  { name: "Russia", code: "RU", phone: "+7" },
+  { name: "Saudi Arabia", code: "SA", phone: "+966" },
+  { name: "Serbia", code: "RS", phone: "+381" },
+  { name: "Slovakia", code: "SK", phone: "+421" },
+  { name: "Slovenia", code: "SI", phone: "+386" },
+  { name: "South Africa", code: "ZA", phone: "+27" },
+  { name: "South Korea", code: "KR", phone: "+82" },
+  { name: "Spain", code: "ES", phone: "+34" },
+  { name: "Sri Lanka", code: "LK", phone: "+94" },
+  { name: "Sweden", code: "SE", phone: "+46" },
+  { name: "Switzerland", code: "CH", phone: "+41" },
+  { name: "Taiwan", code: "TW", phone: "+886" },
+  { name: "Thailand", code: "TH", phone: "+66" },
+  { name: "Turkey", code: "TR", phone: "+90" },
+  { name: "Ukraine", code: "UA", phone: "+380" },
+  { name: "United Arab Emirates", code: "AE", phone: "+971" },
+  { name: "Uruguay", code: "UY", phone: "+598" },
+  { name: "Venezuela", code: "VE", phone: "+58" },
+  { name: "Vietnam", code: "VN", phone: "+84" },
+]
+
 export default function SignUpPage() {
   const router = useRouter()
   const { signUp } = useAuth()
@@ -48,10 +143,83 @@ export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
+  const [filteredCountries, setFilteredCountries] = useState(COUNTRIES_DATA)
+  const [countrySearchTerm, setCountrySearchTerm] = useState("")
+
+  // Auto-detect country from phone number
+  const detectCountryFromPhone = (phoneNumber: string) => {
+    // Remove all non-digit characters except +
+    const cleanPhone = phoneNumber.replace(/[^\d+]/g, '')
+
+    if (!cleanPhone.startsWith('+')) return null
+
+    // Common country code patterns (ordered by specificity)
+    const countryCodeMap = [
+      { codes: ['+1'], countries: ['United States', 'Canada'] }, // Default to US for +1
+      { codes: ['+44'], countries: ['United Kingdom'] },
+      { codes: ['+49'], countries: ['Germany'] },
+      { codes: ['+33'], countries: ['France'] },
+      { codes: ['+39'], countries: ['Italy'] },
+      { codes: ['+34'], countries: ['Spain'] },
+      { codes: ['+31'], countries: ['Netherlands'] },
+      { codes: ['+32'], countries: ['Belgium'] },
+      { codes: ['+41'], countries: ['Switzerland'] },
+      { codes: ['+43'], countries: ['Austria'] },
+      { codes: ['+45'], countries: ['Denmark'] },
+      { codes: ['+46'], countries: ['Sweden'] },
+      { codes: ['+47'], countries: ['Norway'] },
+      { codes: ['+48'], countries: ['Poland'] },
+      { codes: ['+61'], countries: ['Australia'] },
+      { codes: ['+65'], countries: ['Singapore'] },
+      { codes: ['+81'], countries: ['Japan'] },
+      { codes: ['+82'], countries: ['South Korea'] },
+      { codes: ['+86'], countries: ['China'] },
+      { codes: ['+91'], countries: ['India'] },
+      { codes: ['+852'], countries: ['Hong Kong'] },
+      { codes: ['+886'], countries: ['Taiwan'] },
+      { codes: ['+971'], countries: ['United Arab Emirates'] },
+      { codes: ['+966'], countries: ['Saudi Arabia'] },
+      { codes: ['+7'], countries: ['Russia', 'Kazakhstan'] }, // Default to Russia for +7
+    ]
+
+    // Find matching country code
+    for (const mapping of countryCodeMap) {
+      for (const code of mapping.codes) {
+        if (cleanPhone.startsWith(code)) {
+          // For codes with multiple countries, default to first one
+          return mapping.countries[0]
+        }
+      }
+    }
+
+    return null
+  }
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
+
+    // Auto-detect country from phone number
+    if (field === 'phone' && typeof value === 'string') {
+      const detectedCountry = detectCountryFromPhone(value)
+      if (detectedCountry && detectedCountry !== prev.country) {
+        setFormData((current) => ({ ...current, [field]: value, country: detectedCountry }))
+        return
+      }
+    }
   }
+
+  // Filter countries based on search
+  useEffect(() => {
+    if (!countrySearchTerm) {
+      setFilteredCountries(COUNTRIES_DATA)
+    } else {
+      const filtered = COUNTRIES_DATA.filter(country =>
+        country.name.toLowerCase().includes(countrySearchTerm.toLowerCase()) ||
+        country.phone.includes(countrySearchTerm)
+      )
+      setFilteredCountries(filtered)
+    }
+  }, [countrySearchTerm])
 
   const validateForm = () => {
     // Check all required fields
@@ -159,18 +327,7 @@ export default function SignUpPage() {
     }
   }
 
-  const countries = [
-    "United States",
-    "United Kingdom",
-    "Canada",
-    "Australia",
-    "Germany",
-    "France",
-    "Singapore",
-    "Hong Kong",
-    "Japan",
-    "Other",
-  ]
+
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden relative">
@@ -216,13 +373,15 @@ export default function SignUpPage() {
           <div className="w-full max-w-2xl">
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
-              <Image
-                src="/logo.svg"
-                alt="FlashFundX"
-                width={160}
-                height={48}
-                className="h-8 w-auto"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/250 1.svg"
+                  alt="FlashFundX"
+                  width={195}
+                  height={126}
+                  className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
             </div>
 
             <Card className="glass border-slate-800/30 shadow-2xl">
@@ -260,7 +419,7 @@ export default function SignUpPage() {
                         <Input
                           id="firstName"
                           type="text"
-                          placeholder="John"
+                          placeholder="First name"
                           value={formData.firstName}
                           onChange={(e) => handleInputChange("firstName", e.target.value)}
                           className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -277,7 +436,7 @@ export default function SignUpPage() {
                         <Input
                           id="lastName"
                           type="text"
-                          placeholder="Doe"
+                          placeholder="Last name"
                           value={formData.lastName}
                           onChange={(e) => handleInputChange("lastName", e.target.value)}
                           className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -297,7 +456,7 @@ export default function SignUpPage() {
                       <Input
                         id="email"
                         type="email"
-                        placeholder="john.doe@example.com"
+                        placeholder="Enter your email address"
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -317,7 +476,7 @@ export default function SignUpPage() {
                         <Input
                           id="phone"
                           type="tel"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="e.g., +1 555 123 4567"
                           value={formData.phone}
                           onChange={(e) => handleInputChange("phone", e.target.value)}
                           className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 pl-12 h-12 font-medium"
@@ -336,12 +495,33 @@ export default function SignUpPage() {
                             <SelectValue placeholder="Select your country" />
                           </div>
                         </SelectTrigger>
-                        <SelectContent className="glass border-slate-700/50 bg-slate-900">
-                          {countries.map((country) => (
-                            <SelectItem key={country} value={country} className="text-white hover:bg-slate-800">
-                              {country}
+                        <SelectContent className="glass border-slate-700/50 bg-slate-900 max-h-60">
+                          {/* Search input for filtering countries */}
+                          <div className="p-2 border-b border-slate-700/50">
+                            <Input
+                              placeholder="Search countries..."
+                              value={countrySearchTerm}
+                              onChange={(e) => setCountrySearchTerm(e.target.value)}
+                              className="glass-card border-slate-700/50 text-white placeholder:text-slate-400 h-8 text-xs"
+                            />
+                          </div>
+                          {filteredCountries.map((country) => (
+                            <SelectItem
+                              key={country.code}
+                              value={country.name}
+                              className="text-white hover:bg-slate-800 flex items-center justify-between"
+                            >
+                              <div className="flex items-center justify-between w-full">
+                                <span>{country.name}</span>
+                                <span className="text-slate-400 text-xs ml-2">{country.phone}</span>
+                              </div>
                             </SelectItem>
                           ))}
+                          {filteredCountries.length === 0 && (
+                            <div className="p-2 text-slate-400 text-sm text-center">
+                              No countries found
+                            </div>
+                          )}
                         </SelectContent>
                       </Select>
                     </div>
@@ -483,11 +663,19 @@ export default function SignUpPage() {
         <div className="hidden lg:flex lg:w-1/3 flex-col justify-center p-12 bg-gradient-to-b from-slate-900/50 to-slate-800/50">
           <div className="max-w-sm">
             {/* Logo */}
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gradient-primary">FlashFundX</span>
+            <div className="mb-8">
+              <Link href="/" className="flex items-center space-x-3 group">
+                <div className="w-10 h-10 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+                  <Image
+                    src="/250 1.svg"
+                    alt="FlashFundX"
+                    width={40}
+                    height={26}
+                    className="w-8 h-auto"
+                  />
+                </div>
+                <span className="text-xl font-bold text-gradient-primary">FlashFundX</span>
+              </Link>
             </div>
 
             {/* Benefits */}
@@ -532,7 +720,7 @@ export default function SignUpPage() {
                   <Users className="w-6 h-6 text-emerald-400" />
                   <div>
                     <div className="text-lg font-bold text-white">15,000+</div>
-                    <div className="text-xs text-slate-400">Funded Traders</div>
+                    <div className="text-xs text-slate-400">Trained Students</div>
                   </div>
                 </div>
               </div>
@@ -540,8 +728,8 @@ export default function SignUpPage() {
                 <div className="flex items-center space-x-3">
                   <Award className="w-6 h-6 text-teal-400" />
                   <div>
-                    <div className="text-lg font-bold text-white">$2.4M+</div>
-                    <div className="text-xs text-slate-400">Total Payouts</div>
+                    <div className="text-lg font-bold text-white">$850K+</div>
+                    <div className="text-xs text-slate-400">Training Rewards</div>
                   </div>
                 </div>
               </div>

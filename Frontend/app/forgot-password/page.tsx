@@ -225,13 +225,15 @@ export default function ForgotPasswordPage() {
           <div className="max-w-lg">
             {/* Logo */}
             <div className="mb-8">
-              <Image
-                src="/logo.svg"
-                alt="FlashFundX"
-                width={200}
-                height={60}
-                className="h-12 w-auto"
-              />
+              <Link href="/" className="inline-block group">
+                <Image
+                  src="/logo 800 4.svg"
+                  alt="FlashFundX"
+                  width={310}
+                  height={200}
+                  className="h-14 w-auto transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
               <div className="text-xs text-slate-400 font-medium mt-2">Professional Trading Platform</div>
             </div>
 

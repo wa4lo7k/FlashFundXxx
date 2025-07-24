@@ -76,13 +76,6 @@ function AdminLayoutContent({ children }: AdminLayoutProps) {
       current: pathname === "/admin/order-management",
     },
     {
-      name: "NowPayments",
-      href: "/admin/nowpayments",
-      icon: Coins,
-      current: pathname === "/admin/nowpayments",
-      badge: "New",
-    },
-    {
       name: "Account Container",
       href: "/admin/account-container",
       icon: Server,
@@ -352,9 +345,9 @@ function AdminSidebar({ navigation, accountTypes, analytics, management, onClose
     <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 py-4">
       {/* Logo */}
       <div className="flex h-16 shrink-0 items-center justify-between">
-        <div className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center space-x-3 group">
           <div className="relative">
-            <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-glow-emerald">
+            <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-glow-emerald transition-all duration-300 group-hover:scale-105">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-teal-400 rounded-full flex items-center justify-center">
@@ -365,7 +358,7 @@ function AdminSidebar({ navigation, accountTypes, analytics, management, onClose
             <span className="text-lg font-bold text-gradient-primary">Admin Portal</span>
             <div className="text-xs text-slate-400 font-medium">FlashFundX</div>
           </div>
-        </div>
+        </Link>
         {onClose && (
           <button onClick={onClose} className="lg:hidden text-slate-400 hover:text-white">
             <X className="h-6 w-6" />

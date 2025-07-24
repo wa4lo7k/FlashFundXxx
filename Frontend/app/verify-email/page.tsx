@@ -172,19 +172,21 @@ function VerifyEmailForm() {
         <div className="hidden lg:flex lg:w-1/2 flex-col justify-center p-12">
           <div className="max-w-lg">
             {/* Logo */}
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="relative">
-                <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shadow-glow-emerald">
-                  <TrendingUp className="w-7 h-7 text-white" />
+            <div className="mb-8">
+              <Link href="/" className="flex items-center space-x-3 group">
+                <div className="relative">
+                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shadow-glow-emerald transition-all duration-300 group-hover:scale-105">
+                    <TrendingUp className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-teal-400 rounded-full flex items-center justify-center">
+                    <Shield className="w-3 h-3 text-slate-900" />
+                  </div>
                 </div>
-                <div className="absolute -top-1 -right-1 w-5 h-5 bg-teal-400 rounded-full flex items-center justify-center">
-                  <Shield className="w-3 h-3 text-slate-900" />
+                <div>
+                  <span className="text-2xl font-bold text-gradient-primary">FlashFundX</span>
+                  <div className="text-xs text-slate-400 font-medium">Professional Trading Platform</div>
                 </div>
-              </div>
-              <div>
-                <span className="text-2xl font-bold text-gradient-primary">FlashFundX</span>
-                <div className="text-xs text-slate-400 font-medium">Professional Trading Platform</div>
-              </div>
+              </Link>
             </div>
 
             {/* Verification Benefits */}

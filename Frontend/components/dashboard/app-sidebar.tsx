@@ -29,8 +29,8 @@ const navigationItems = [
     isActive: true,
   },
   {
-    title: "Buy Challenge",
-    url: "/dashboard/buy-challenge",
+    title: "Place Order",
+    url: "/dashboard/place-order",
     icon: Plus,
   },
   {
@@ -103,9 +103,9 @@ export function AppSidebar({ isOpen = true, onToggle }: AppSidebarProps) {
 
         {/* Logo Header - Fixed */}
         <div className="p-6 border-b border-slate-800/50 flex-shrink-0">
-          <div className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative flex-shrink-0">
-              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-glow-emerald">
+              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-glow-emerald transition-all duration-300 group-hover:scale-105">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-teal-400 rounded-full flex items-center justify-center">
@@ -118,7 +118,7 @@ export function AppSidebar({ isOpen = true, onToggle }: AppSidebarProps) {
                 <div className="text-xs text-slate-400 font-medium truncate">Trading Dashboard</div>
               </div>
             )}
-          </div>
+          </Link>
         </div>
 
         {/* Scrollable Content Area */}

@@ -1,230 +1,179 @@
-# 🚀 FlashFundX - Professional Prop Trading Platform
+# 🚀 Prop Firm Platform Frontend
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Supabase](https://img.shields.io/badge/Supabase-Database-green)](https://supabase.com/)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)](https://vercel.com/)
+A comprehensive, modern prop firm platform built with Next.js 14, TypeScript, and Tailwind CSS. Features a complete trading challenge system with multiple account types and a powerful admin portal.
 
-A comprehensive, production-ready prop trading platform that enables traders to access funded accounts through evaluation challenges. Built with modern web technologies and featuring cryptocurrency payment integration.
+🔗 **✅ FIXED: Moved to root directory for Vercel deployment compatibility!**
 
-## ✨ Key Features
+## ✨ Features
 
-### 🏦 **Account Types**
-- **Instant Accounts**: Direct live trading access
-- **HFT Accounts**: High-frequency trading with single challenge
-- **One-Step Accounts**: Single evaluation phase
-- **Two-Step Accounts**: Traditional two-phase evaluation
+### 🏠 **Landing Page**
+- Modern, responsive design with glass morphism effects
+- Live trading ticker with real-time data
+- Comprehensive pricing tables for all account types
+- FAQ section and testimonials
+- Professional hero section with call-to-action
 
-### 💰 **Payment Integration**
-- **Cryptocurrency**: USDT (BSC/TRC20/Polygon), Bitcoin, Ethereum, BNB, Solana
-- **Credit Cards**: Integrated with LemonSqueezy
-- **Automatic Processing**: Real-time payment verification
-- **NowPayments Integration**: Secure crypto payment gateway
+### 👤 **User Authentication**
+- Secure email/password authentication
+- Email verification system
+- Password reset functionality
+- Protected routes and session management
 
-### 👨‍💼 **Admin Portal**
-- **User Management**: Complete user oversight and control
-- **Order Tracking**: Real-time payment and order status
-- **Account Delivery**: Automated MT4/MT5 account provisioning
-- **Analytics Dashboard**: Comprehensive business insights
-- **Trading Rules Management**: Configurable challenge parameters
+### 📊 **User Dashboard**
+- Account overview with real-time statistics
+- Order placement for different challenge types
+- KYC verification workflow
+- Document upload and management
+- Trading rules and guidelines
+- Withdrawal management
 
-### 🔐 **Authentication & Security**
-- **Email Verification**: Secure account activation
-- **Password Reset**: Email-based password recovery
-- **Role-Based Access**: Admin and user permissions
-- **Supabase Auth**: Enterprise-grade authentication
+### 🎯 **Challenge Types**
+- **Instant Challenge**: Immediate funding with 10% profit target
+- **OneStep Challenge**: Single-phase evaluation with 8% target
+- **TwoStep Challenge**: Traditional two-phase evaluation (8% + 5%)
+- **HFT Challenge**: High-frequency trading with 6% target
 
-### 📱 **User Experience**
-- **Responsive Design**: Mobile-first approach
-- **Modern UI**: Clean, professional interface
-- **Real-time Updates**: Live payment and account status
-- **Dashboard**: Comprehensive user control panel
+### 🛠️ **Admin Portal**
+- **Comprehensive Dashboard** with live statistics and analytics
+- **Order Management**: View, edit, and process all order types
+- **User Management**: Complete user lifecycle with KYC workflows
+- **Account Delivery**: Manual account credential delivery system
+- **Bulk Operations**: Multi-select and batch processing
+- **Real-time Notifications**: Live activity feed and alerts
+- **Advanced Analytics**: Performance metrics and business intelligence
+- **Reports & Analytics**: Automated report generation
+- **Settings & Configuration**: Platform-wide configuration management
 
 ## 🛠️ Tech Stack
 
-### **Frontend**
-- **Framework**: Next.js 15.2.4 with App Router
+- **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS + shadcn/ui components
-- **State Management**: React Context + Hooks
-- **Forms**: React Hook Form with Zod validation
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Radix UI primitives with custom styling
+- **Icons**: Lucide React
+- **State Management**: React hooks and context
+- **Form Handling**: React Hook Form with validation
+- **Animations**: CSS transitions and transforms
 
-### **Backend**
-- **Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth
-- **Edge Functions**: Supabase Edge Functions
-- **Real-time**: Supabase Realtime subscriptions
-- **File Storage**: Supabase Storage
-
-### **Payment Processing**
-- **Crypto**: NowPayments API
-- **Cards**: LemonSqueezy integration
-- **Webhooks**: Automated payment verification
-- **Security**: Encrypted payment data
-
-### **Deployment**
-- **Hosting**: Vercel (Frontend)
-- **Database**: Supabase Cloud
-- **CDN**: Vercel Edge Network
-- **SSL**: Automatic HTTPS
-
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js 18+ 
-- npm or yarn
-- Supabase account
-- NowPayments account (for crypto)
+- npm, yarn, or pnpm
 
 ### Installation
 
 1. **Clone the repository**
-```bash
-git clone https://github.com/cobzeu/FlashFundX.git
-cd FlashFundX
-```
+   ```bash
+   git clone <repository-url>
+   cd Frontend
+   ```
 
 2. **Install dependencies**
-```bash
-cd Frontend
-npm install
-```
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-3. **Environment Setup**
-Create `.env.local` in the Frontend directory:
-```env
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-# Payment Integration
-NOWPAYMENTS_API_KEY=your_nowpayments_api_key
-LEMONSQUEEZY_API_KEY=your_lemonsqueezy_api_key
-
-# Admin Configuration
-ADMIN_USERNAME=FlashFundX
-ADMIN_PASSWORD=your_admin_password
-```
-
-4. **Database Setup**
-```bash
-# Run the database schema
-psql -h your_supabase_host -U postgres -d postgres -f Frontend/flashfundx-database-schema.sql
-```
-
-5. **Deploy Edge Functions**
-```bash
-# Deploy Supabase Edge Functions
-./deploy-edge-functions.sh
-```
-
-6. **Start Development Server**
-```bash
-npm run dev
-```
-
-Visit `http://localhost:3000` to see the application.
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## 📁 Project Structure
 
 ```
-FlashFundX/
-├── Frontend/                 # Main application
-│   ├── app/                 # Next.js App Router
-│   │   ├── admin/          # Admin portal pages
-│   │   ├── dashboard/      # User dashboard
-│   │   └── (auth)/         # Authentication pages
-│   ├── components/         # Reusable UI components
-│   │   ├── admin/         # Admin-specific components
-│   │   ├── dashboard/     # Dashboard components
-│   │   ├── sections/      # Landing page sections
-│   │   └── ui/           # Base UI components
-│   ├── lib/              # Utilities and configurations
-│   ├── supabase/         # Edge Functions
-│   └── public/           # Static assets
-├── Backend/              # Backend utilities (if needed)
-└── supabase/            # Supabase configuration
+Frontend/
+├── app/                    # Next.js App Router pages
+│   ├── admin/             # Admin portal pages
+│   ├── dashboard/         # User dashboard pages
+│   ├── login/             # Authentication pages
+│   └── ...
+├── components/            # Reusable components
+│   ├── admin/            # Admin-specific components
+│   ├── dashboard/        # Dashboard components
+│   ├── sections/         # Landing page sections
+│   └── ui/               # Base UI components
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions
+├── public/               # Static assets
+└── styles/               # Global styles
 ```
 
-## 🔧 Configuration
+## 🎨 Design System
 
-### **Trading Rules**
-Configure challenge parameters in the admin portal:
-- Profit targets
-- Maximum drawdowns
-- Minimum trading days
-- Account sizes and pricing
+### Color Palette
+- **Primary**: Emerald green (#10b981)
+- **Secondary**: Slate gray (#64748b)
+- **Accent**: Blue (#3b82f6)
+- **Background**: Dark theme with glass morphism
 
-### **Payment Settings**
-Set up payment providers:
-- NowPayments: Crypto payment processing
-- LemonSqueezy: Credit card processing
-- Webhook endpoints for real-time updates
+### Typography
+- **Headings**: Inter font family
+- **Body**: System font stack
+- **Code**: Monospace fonts
 
-### **Account Delivery**
-Configure MT4/MT5 account provisioning:
-- Account server details
-- Login credentials generation
-- Automated delivery system
+## 🔧 Key Components
+
+### Admin Portal Features
+- **Dashboard**: Live statistics, activity feed, system status
+- **Order Management**: Complete order lifecycle management
+- **User Management**: KYC workflows, account status control
+- **Analytics**: Performance metrics, conversion tracking
+- **Bulk Operations**: Multi-select actions, batch processing
+- **Notifications**: Real-time alerts and activity tracking
+
+### User Dashboard Features
+- **Account Overview**: Balance, progress, statistics
+- **Order Placement**: Challenge selection and payment
+- **KYC Verification**: Document upload and verification
+- **Account Management**: Trading credentials and rules
 
 ## 🚀 Deployment
 
-### **Vercel Deployment**
+### Build for Production
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy to production
-cd Frontend
-vercel --prod
+npm run build
+npm start
 ```
 
-### **Environment Variables**
-Set up production environment variables in Vercel dashboard or use:
-```bash
-vercel env add NEXT_PUBLIC_SUPABASE_URL
-vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
-# ... add all required variables
+### Environment Variables
+Create a `.env.local` file with:
+```env
+NEXT_PUBLIC_API_URL=your_api_url
+NEXT_PUBLIC_SITE_URL=your_site_url
 ```
 
-## 📊 Features Overview
+## 📱 Responsive Design
 
-### **User Journey**
-1. **Registration**: Email verification required
-2. **Account Selection**: Choose account type and size
-3. **Payment**: Crypto or card payment processing
-4. **Account Delivery**: Automatic MT4/MT5 provisioning
-5. **Trading**: Access to funded trading account
+The platform is fully responsive and optimized for:
+- **Desktop**: Full-featured experience
+- **Tablet**: Optimized layouts and navigation
+- **Mobile**: Touch-friendly interface with collapsible menus
 
-### **Admin Features**
-- Real-time order monitoring
-- User management and verification
-- Payment tracking and reconciliation
-- Account delivery management
-- Analytics and reporting
+## 🔒 Security Features
 
-### **Payment Flow**
-1. User selects account and payment method
-2. Payment processor (NowPayments/LemonSqueezy) handles transaction
-3. Webhook confirms payment
-4. Account automatically delivered
-5. User receives trading credentials
+- **Authentication**: Secure session management
+- **Route Protection**: Protected admin and user routes
+- **Input Validation**: Form validation and sanitization
+- **CSRF Protection**: Built-in Next.js security features
 
-## 🔐 Security Features
+## 🎯 Performance
 
-- **Row Level Security (RLS)**: Database-level access control
-- **API Key Management**: Secure key storage and rotation
-- **Payment Encryption**: All payment data encrypted
-- **Admin Authentication**: Separate admin login system
-- **Input Validation**: Comprehensive form validation
-
-## 📈 Monitoring & Analytics
-
-- **Payment Tracking**: Real-time payment status
-- **User Analytics**: Registration and conversion metrics
-- **Error Monitoring**: Comprehensive error tracking
-- **Performance Metrics**: Application performance monitoring
+- **Core Web Vitals**: Optimized for performance
+- **Code Splitting**: Automatic route-based splitting
+- **Image Optimization**: Next.js Image component
+- **Caching**: Efficient caching strategies
 
 ## 🤝 Contributing
 
@@ -236,22 +185,12 @@ vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is proprietary software. All rights reserved.
 
 ## 🆘 Support
 
-For support and questions:
-- Create an issue in this repository
-- Contact: [your-email@example.com]
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) - React framework
-- [Supabase](https://supabase.com/) - Backend as a Service
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [shadcn/ui](https://ui.shadcn.com/) - UI components
-- [NowPayments](https://nowpayments.io/) - Crypto payment processing
+For support and questions, please contact the development team.
 
 ---
 
-**FlashFundX** - Empowering traders with professional prop trading solutions 🚀
+**Built with ❤️ for the trading community**
